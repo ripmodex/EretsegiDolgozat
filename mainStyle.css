@@ -13,14 +13,15 @@
 
 #content{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow: auto;
+    top: 55px;
+    left: 55px;
+    <!--transform: translate( -50%, -50%);-->
+    <!-- overflow: auto; -->
     max-height: 80vh;
     width: 1250px;
     background-color: rgba(0, 0 , 0, 0.6);
     color: white;
+    margin: 15px;
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -41,10 +42,10 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 15px;
+    height: auto;
     background-color: rgba(0, 0, 0, 0.9);
     display: flex;
-    align-items: center;
+    align-items: stretch;
     padding: 10px 0;
     z-index: 2;
 }
@@ -76,4 +77,27 @@
 
 #menu ul li a:hover{
     color: #00aaff;
+}
+
+.searchBox{
+    margin-left: auto;
+    margin-right: 5px;
+}
+
+.searchBoxInput{
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+#menu button{
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: auto;
+    height: 100%;
 }
