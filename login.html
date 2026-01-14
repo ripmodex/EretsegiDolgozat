@@ -13,11 +13,20 @@
         <h1>Log In to Hollow Wiki</h1>
         <h3>It is a great place to learn about the game called Hollow Knight. Welcome!</h3>
         <br>
-        <input type="text" placeholder="Username..." name="username">
+        <input type="text" id="username" placeholder="Username..." name="username" required>
         <br>
-        <input type="password" placeholder="Password..." name="password">
+        <input type="password" id="password" placeholder="Password..." name="password" required>
         <br>
-        <button>Log In</button>
+        <button id="loginButton">Log In</button>
+        <p id="errorMessage" style="color: red; display:none">Please fill in all the field, thanks!</p>
     </div>
+        <div id="popup" class="popupOverlay">
+            <div class="popupContent">
+                <h2>Login Successfull</h2>
+                <p>Welcome</p>
+                <button onclick="closePopup()">Close</button>
+            </div>
+        </div>
+    <script src="loginTemplate.js"></script>
 </body>
 </html>
