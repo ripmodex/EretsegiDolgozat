@@ -10,7 +10,7 @@
     <nav id="menu">
         <img src="Kepek/icon.jpg" alt="logo" id="menu-logo">
         <ul>
-            <li><a>Map</a></li>
+            <li><a href="javascript:void(0)" onclick="openMap()">Map</a></li>
             <li><a>Charms</a></li>
             <li><a>Screenshots</a></li>
             <li><a>Negyedik</a></li>
@@ -21,6 +21,26 @@
         <button id="loginButton">Log In</button>
         <button id="signupButton">Sign Up</button>
     </nav>
+
+    <div id="mapOverlay" class="map-overlay">
+        <div class="map-wrapper">
+            <button class="closeMapOverlay" onclick="closeMap()">&times;</button>
+            <img src="Kepek/Map/main.jpg" id="mapDisplay" usemap="#hkMap" alt="Hollow Knight Map"> <!--onload="makeMapResponsive()" -->
+            <map name="hkMap">
+                <area shape="rect" coords="432, 199, 555, 239" alt="Forgotten Crossroads"
+                      onmouseover="changeImage('Kepek/Map/forgottenCrossroads.jpg')"
+                      onmouseout="resetImage()">    <!--href="#forgottenCrossroads"o-->
+                <area shape="rect" coords="399, 153, 513, 193" alt="Dirthmouth"
+                      onmouseover="changeImage('Kepek/Map/dirthmouth.jpg')"
+                      onmouseout="resetImage()">     <!--href="#dirthmouth" -->
+                <area shape="rect" coords="" alt="Crystal Peak"
+                      onmouseover="changeImage('Kepek/Map/crystalPeak.jpg')"
+                      onmouseout="resetImage()">
+                <!-- for today, this is the farthest i go, i will think about it to use poly or rect, where it should be used-->
+                <!-- and maybe i will delete the makeMapResponsive, because i think i does not really help in its job-->
+            </map>
+        </div>
+    </div>
 
     <div id="bg"></div>
     <div id="content">
