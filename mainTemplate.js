@@ -47,28 +47,17 @@ document.getElementById('mapDisplay').addEventListener('click', function(e) {
     const y = e.clientY - rect.top;
     console.log("Current Pixel Coords: " + Math.round(x) + ", " + Math.round(y));
 });
-//just for debugging, but it clearly did not worked the way i wanted, so here it is
+//just for debugging, I found the right way, and I did the mapping with this, getting coords of each area
 
-/*function makeMapResponsive(){
-    const img=document.getElementById("mapImage");
-    const areas=map.getElementByTagName('area');
-
-    const ratioX=img.clientWidth/img.naturalWidth;
-    const ratioY=img.clientHeight/img.naturalHeight;
-
-    area.forEach(area=>{
-        if(!area.dataset.original){
-            area.dataset.original=area.getAttribute('coords');
-        }
-        const coords=area.dataset.original.split(',');
-        const scaledCoords=coords.map((c,i)=>{
-            return i%2===0 ? Math.round(c*ratioX) : Math.round(c*ratioY);
-        });
-        area.setAttribute('coords',scaledCoords.join(','));
+function playHoverSound(){
+    const sound=document.getElementById("hoverSound");
+    sound.pause();
+    sound.currentTime=0;
+    sound.volume=0.3;
+    sound.play().catch(error=>{
+        console.log("Audio waiting for user interaction...");
     });
-}*/
-
-//window.addEventListener("resize", makeMapResponsive);
+}
 
 const preloadImages=[
     "Kepek/Map/main.jpg",
@@ -94,3 +83,25 @@ preloadImages.forEach(src=>{
     const img=new Image();
     img.src=src;
 })
+
+//I don't know if I want to use this, but I don't want to delete it to, so for now I will save it for later
+/*function makeMapResponsive(){
+    const img=document.getElementById("mapImage");
+    const areas=map.getElementByTagName('area');
+
+    const ratioX=img.clientWidth/img.naturalWidth;
+    const ratioY=img.clientHeight/img.naturalHeight;
+
+    area.forEach(area=>{
+        if(!area.dataset.original){
+            area.dataset.original=area.getAttribute('coords');
+        }
+        const coords=area.dataset.original.split(',');
+        const scaledCoords=coords.map((c,i)=>{
+            return i%2===0 ? Math.round(c*ratioX) : Math.round(c*ratioY);
+        });
+        area.setAttribute('coords',scaledCoords.join(','));
+    });
+}*/
+
+//window.addEventListener("resize", makeMapResponsive);
