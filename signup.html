@@ -4,14 +4,34 @@
     <meta charset="UTF-8">
     <title>Sign Up</title>
     <link rel="icon" href="Kepek/icon.jpg" type="image/jpg">
-    <link rel="stylesheet" href="mainStyle.css">
+    <!-- <link rel="stylesheet" href="mainStyle.css"> -->
     <link rel="stylesheet" href="signupStyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
 <body>
     <div id="bg"></div>
     <div id="content">
         <h1>Sign Up</h1>
         <h3>If you want to make an account, here is the right place for it!</h3>
+        <form action="Server/processSignUp.php" method="post" novalidate>
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Username...">
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="E-mail...">
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Password...">
+            </div>
+            <div>
+                <label for="passwordAgain">Password again: </label>
+                <input type="password" id="passwordAgain" name="passwordAgain" placeholder="Password again...">
+            </div>
+            <button>Sign Up</button>
+        </form>
     </div>
 </body>
 </html>

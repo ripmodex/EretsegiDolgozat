@@ -3,22 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Log In</title>
-    <link rel="stylesheet" href="mainStyle.css">
+    <!-- <link rel="stylesheet" href="mainStyle.css"> -->
     <link rel="stylesheet" href="loginStyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <link rel="icon" href="Kepek/icon.jpg">
 </head>
 <body>
     <div id="bg"></div>
     <div id="content">
-        <h1>Log In to Hollow Wiki</h1>
-        <h3>It is a great place to learn about the game called Hollow Knight. Welcome!</h3>
-        <br>
-        <input type="text" id="username" placeholder="Username..." name="username" required>
-        <br>
-        <input type="password" id="password" placeholder="Password..." name="password" required>
-        <br>
-        <button id="loginButton">Log In</button>
-        <p id="errorMessage" style="color: red; display:none">Please fill in all the field, thanks!</p>
+        <form>
+            <h1>Log In to Hollow Wiki</h1>
+            <h3>It is a great place to learn about the game called Hollow Knight. Welcome!</h3>
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Username..." name="username" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Password..." name="password" required>
+            </div>
+            <button id="loginButton">Log In</button>
+            <p id="errorMessage" style="color: red; display:none">Please fill in all the field, thanks!</p>
+        </form>
     </div>
         <div id="popup" class="popupOverlay">
             <div class="popupContent">
