@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+/*document.addEventListener("DOMContentLoaded", function() {
     const loginButton=document.getElementById("loginButton");
 
     loginButton.addEventListener("click", function() {
@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
         window.open("signup.html", "_blank");
     })
 })
+*/ //maybe it is too complicated for my sake, but for now I won`t delete it
 
 function openMap(){
     document.getElementById("mapOverlay").style.display="flex"

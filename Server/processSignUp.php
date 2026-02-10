@@ -43,8 +43,10 @@ $stmt->bind_param("sss",
 
 try{
     $stmt->execute();
-    echo "Sign up successful.";
-}catch(mysqli_sql_exception $e){
+    header("Location: ../signupSuccess.html"); //if it is not working properly in the past maybe try with if/else
+    exit;
+}
+catch(mysqli_sql_exception $e){
     if($mysqli->errno===1062) {
         die("Error: That email is already registered.");
     }

@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" href="mainStyle.css">
+    <link rel="stylesheet" href="menuStyle.css">
+    <link rel="stylesheet" href="contentStyle.css">
     <link rel="icon" type="image/jpg" href="Kepek/icon.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
 <body>
     <nav id="menu">
@@ -18,8 +21,8 @@
         <div class="searchBox">
             <input type="text" placeholder="Search.." name="search">
         </div>
-        <button id="loginButton">Log In</button>
-        <button id="signupButton">Sign Up</button>
+        <button onclick="window.open('login.html','_self')">Log In</button>
+        <button onclick="window.open('signup.html', '_self')">Sign Up</button>
     </nav>
 
     <audio id="hoverSound" src="Sounds/hoverSound.mp3" preload="auto"></audio>
@@ -124,6 +127,6 @@
         Ez egy olyan oldal lesz ahol, megprobalok segiteni a Hollow Knightban, segiteni a haladasban, egy guide ugymond, megprobalom, hogy megtalald a legjobb utat neked a jatek kijatszasahoz.<br><br>
         <img src="Kepek/wanderer.png" alt="wanderer" class="content-img">
     </div>
-    <script src="mainTemplate.js"></script>
+    <script src="mainScript.js"></script>
 </body>
 </html>

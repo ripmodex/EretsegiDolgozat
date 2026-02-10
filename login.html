@@ -3,15 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Log In</title>
-    <!-- <link rel="stylesheet" href="mainStyle.css"> -->
+    <link rel="stylesheet" href="menuStyle.css">
     <link rel="stylesheet" href="loginStyle.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <link rel="icon" href="Kepek/icon.jpg">
 </head>
 <body>
     <div id="bg"></div>
+    <nav id="menu">
+        <img src="Kepek/icon.jpg" alt="logo" id="menu-logo">
+        <ul>
+            <li><a>Charms</a></li>
+            <li><a>Screenshots</a></li>
+            <li><a>Negyedik</a></li>
+        </ul>
+        <div class="searchBox">
+            <input type="text" placeholder="Search.." name="search">
+        </div>
+        <button onclick="window.open('main.html','_self')">Home Page</button>
+        <button onclick="window.open('signup.html','_self')">Sign Up</button>
+
+    </nav>
     <div id="content">
-        <form>
+        <form method="post" >
             <h1>Log In to Hollow Wiki</h1>
             <h3>It is a great place to learn about the game called Hollow Knight. Welcome!</h3>
             <div>
@@ -25,14 +39,14 @@
             <button id="loginButton">Log In</button>
             <p id="errorMessage" style="color: red; display:none">Please fill in all the field, thanks!</p>
         </form>
-    </div>
+        <!-- </div>
         <div id="popup" class="popupOverlay">
             <div class="popupContent">
                 <h2>Login Successfull</h2>
                 <p>Welcome</p>
                 <button onclick="closePopup()">Close</button>
-            </div>
+            </div> -->
         </div>
-    <script src="loginTemplate.js"></script>
+    <script src="loginScript.js"></script>
 </body>
 </html>
