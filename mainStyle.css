@@ -30,10 +30,11 @@
 
 .closeMapOverlay{
     position: absolute;
-    top: -40px;
-    right: -40px;
-    background: none;
-    border: none;
+    top: -55px;
+    right: -60px;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
     color: white;
     font-size: 40px;
     cursor: pointer;

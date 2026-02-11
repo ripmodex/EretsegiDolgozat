@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="menuStyle.css">
     <link rel="stylesheet" href="signupStyle.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
+    <script src="signupScript.js" defer></script>
 </head>
 <body>
     <div id="bg"></div>
@@ -25,7 +27,7 @@
     <div id="content">
         <h1>Sign Up</h1>
         <h3>If you want to make an account, here is the right place for it!</h3>
-        <form action="Server/processSignUp.php" method="post" novalidate>
+        <form action="Server/processSignUp.php" method="post" id="signup" novalidate>
             <div>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" placeholder="Username...">

@@ -16,7 +16,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if($user){
         if(password_verify($_POST["password"] ,$user["password_hash"])){
-            die("Login successfully");
+            session_start();
+            session_regenerate_id();
+            $_SESSION["user_id"]=$user["id"];
+            header("Location: index.php");
+            exit;
         }
     }
 
@@ -47,9 +51,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="searchBox">
             <input type="text" placeholder="Search.." name="search">
         </div>
-        <button onclick="window.open('main.html','_self')">Home Page</button>
-        <button onclick="window.open('signup.html','_self')">Sign Up</button>
-
+        <button onclick="window.open('../main.html','_self')">Home Page</button>
+        <button onclick="window.open('../signup.html','_self')">Sign Up</button>
     </nav>
     <div id="content">
         <form method="post" >
