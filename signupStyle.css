@@ -28,6 +28,52 @@
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
+
+.errorMessage{
+    color: #ff4444;
+    font-size: 0.8em;
+    display: none;
+}
+
+.errorText{
+    color: #ff6b6b;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: none;
+    min-height: 1.2em;
+    visibility: hidden;
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.errorActive{
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+input.invalid{
+    border: 1px solid #ff6b6b !important;
+}
+
+#content input{
+    width: 25%;
+    height: 25%;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+#content button{
+    width: 15%;
+    height: 25%;
+    margin: 20px;
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 5px;
+}
 /*
 #content form label{
     vertical-align: middle;

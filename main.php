@@ -1,3 +1,16 @@
+<?php
+
+#require __DIR__ . "/Server/profile.php";
+$path = dirname(__FILE__) . '/Server/profile.php';
+
+if (file_exists($path)) {
+    require $path;
+} else {
+    die("Fatal Error: Could not find the file at: " . $path);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,8 +34,12 @@
         <div class="searchBox">
             <input type="text" placeholder="Search.." name="search">
         </div>
-        <button onclick="window.open('Server/login.php','_self')">Log In</button>
-        <button onclick="window.open('signup.html', '_self')">Sign Up</button>
+        <?php if($isLoggedIn):?>
+            <button onclick="window.open('Server/index.php', '_self')"><?= htmlspecialchars($userName)?></button>
+        <?php else: ?>
+            <button onclick="window.open('Server/login.php','_self')">Log In</button>
+            <button onclick="window.open('signup.html', '_self')">Sign Up</button>
+        <?php endif; ?>
     </nav>
 
     <audio id="hoverSound" src="Sounds/hoverSound.mp3" preload="auto"></audio>

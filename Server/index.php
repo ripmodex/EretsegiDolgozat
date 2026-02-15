@@ -36,7 +36,7 @@ if(isset($_SESSION["user_id"])){
         <div class="searchBox">
             <input type="text" placeholder="Search.." name="search">
         </div>
-        <button onclick="window.open('../main.html','_self')">Home Page</button>
+        <button onclick="window.open('../main.php','_self')">Home Page</button>
     </nav>
     <div id="content">
         <h1>Log In to Hollow Wiki</h1>

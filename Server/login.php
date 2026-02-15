@@ -51,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="searchBox">
             <input type="text" placeholder="Search.." name="search">
         </div>
-        <button onclick="window.open('../main.html','_self')">Home Page</button>
+        <button onclick="window.open('../main.php','_self')">Home Page</button>
         <button onclick="window.open('../signup.html','_self')">Sign Up</button>
     </nav>
     <div id="content">
@@ -59,7 +59,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <h1>Log In to Hollow Wiki</h1>
             <h3>It is a great place to learn about the game called Hollow Knight. Welcome!</h3>
             <?php if($is_invalid): ?>
-                <h2 style="color: red"><em>Invalid login</em></h2>
+                <span style="color: #ff6b6b"><em><b>Invalid login</b></em></span>
             <?php endif; ?>
             <div>
                 <label for="email">Email:</label>
@@ -70,6 +70,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <label for="password">Password:</label>
                 <input type="password" id="password" placeholder="Password..." name="password" required>
             </div>
+            <span>If you don`t have an account, make one <a href="../signup.html">here</a></span><br>
             <button id="loginButton">Log In</button>
             <!-- <p id="errorMessage" style="color: red; display:none">Please fill in all the field, thanks!</p> -->
         </form>

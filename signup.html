@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="menuStyle.css">
     <link rel="stylesheet" href="signupStyle.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
+    <!-- <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script> -->
     <script src="signupScript.js" defer></script>
 </head>
 <body>
@@ -22,7 +22,7 @@
         <div class="searchBox">
             <input type="text" placeholder="Search.." name="search">
         </div>
-        <button onclick="window.open('main.html','_self')">Home page</button>
+        <button onclick="window.open('main.php','_self')">Home page</button>
     </nav>
     <div id="content">
         <h1>Sign Up</h1>
@@ -31,18 +31,22 @@
             <div>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" placeholder="Username...">
+                <span id="usernameError" class="errorText"></span>
             </div>
             <div>
                 <label for="email">Email:</label>
                 <input type="text" id="email" name="email" placeholder="E-mail...">
+                <span id="emailError" class="errorText"></span>
             </div>
             <div>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Password...">
+                <span id="passwordError" class="errorText"></span>
             </div>
             <div>
                 <label for="passwordAgain">Password again: </label>
                 <input type="password" id="passwordAgain" name="passwordAgain" placeholder="Password again...">
+                <span id="passwordAgainError" class="errorText"></span>
             </div>
             <button>Sign Up</button>
         </form>
