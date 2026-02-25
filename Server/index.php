@@ -19,8 +19,9 @@ if(isset($_SESSION["user_id"])){
 <head>
     <meta charset="UTF-8">
     <title>Log In</title>
-    <link rel="stylesheet" href="../menuStyle.css">
-    <link rel="stylesheet" href="../loginStyle.css">
+    <link rel="stylesheet" href="../Common/menuStyle.css">
+    <!-- <link rel="stylesheet" href="../Common/contentStyle.css"> -->
+    <link rel="stylesheet" href="../Login/loginStyle.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <link rel="icon" href="../Kepek/icon.jpg">
 </head>
@@ -36,7 +37,7 @@ if(isset($_SESSION["user_id"])){
         <div class="searchBox">
             <input type="text" placeholder="Search.." name="search">
         </div>
-        <button onclick="window.open('../main.php','_self')">Home Page</button>
+        <button onclick="window.open('../Main/main.php','_self')">Home Page</button>
     </nav>
     <div id="content">
         <h1>Log In to Hollow Wiki</h1>
@@ -44,7 +45,7 @@ if(isset($_SESSION["user_id"])){
             <p>Hello <?= htmlspecialchars($user["username"]) ?></p>
             <p><a href="logout.php">Log out</a></p>
         <?php else: ?>
-            <p><a href="login.php">Log in</a> or <a href="../signup.html">Sign up</a></p>
+            <p><a href="../Login/login.php">Log in</a> or <a href="../Signup/signup.html">Sign up</a></p>
         <?php endif; ?>
     </div>
 </body>

@@ -119,7 +119,7 @@ function showError(id, message){
 
 async function checkEmailAvailability(email){
     try{
-        const response = await fetch("Server/validateEmail.php?email="+encodeURIComponent(email));
+        const response = await fetch("../Signup/validateEmail.php?email="+encodeURIComponent(email));
         const json = await response.json();
         return json.available;
     }

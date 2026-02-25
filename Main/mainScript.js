@@ -32,7 +32,7 @@ window.onclick=function(event){
 }
 
 const mapImage=document.getElementById("mapDisplay");
-const originalSrc="Kepek/Map/main.jpg";
+const originalSrc="../Kepek/Map/main.jpg";
 
 function changeImage(newSrc){
     mapImage.src=newSrc;
@@ -61,23 +61,23 @@ function playHoverSound(){
 }
 
 const preloadImages=[
-    "Kepek/Map/main.jpg",
-    "Kepek/Map/forgottenCrossroads.jpg",
-    "Kepek/Map/ancientBasin.jpg",
-    "Kepek/Map/cityofTears.jpg",
-    "Kepek/Map/crystalPeak.jpg",
-    "Kepek/Map/deepnest.jpg",
-    "Kepek/Map/dirtmouth.jpg",
-    "Kepek/Map/fogCanyon.jpg",
-    "Kepek/Map/forgottenCrossroads.jpg",
-    "Kepek/Map/fungalWastes.jpg",
-    "Kepek/Map/greenpath.jpg",
-    "Kepek/Map/howlingCliffs.jpg",
-    "Kepek/Map/kingdomsEdge.jpg",
-    "Kepek/Map/queensGarden.jpg",
-    "Kepek/Map/restingGrounds.jpg",
-    "Kepek/Map/royalWaterways.jpg",
-    "Kepek/Map/theHive.jpg",
+    "../Kepek/Map/main.jpg",
+    "../Kepek/Map/forgottenCrossroads.jpg",
+    "../Kepek/Map/ancientBasin.jpg",
+    "../Kepek/Map/cityofTears.jpg",
+    "../Kepek/Map/crystalPeak.jpg",
+    "../Kepek/Map/deepnest.jpg",
+    "../Kepek/Map/dirtmouth.jpg",
+    "../Kepek/Map/fogCanyon.jpg",
+    "../Kepek/Map/forgottenCrossroads.jpg",
+    "../Kepek/Map/fungalWastes.jpg",
+    "../Kepek/Map/greenpath.jpg",
+    "../Kepek/Map/howlingCliffs.jpg",
+    "../Kepek/Map/kingdomsEdge.jpg",
+    "../Kepek/Map/queensGarden.jpg",
+    "../Kepek/Map/restingGrounds.jpg",
+    "../Kepek/Map/royalWaterways.jpg",
+    "../Kepek/Map/theHive.jpg",
 ]
 
 preloadImages.forEach(src=>{

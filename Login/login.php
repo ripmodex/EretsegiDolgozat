@@ -3,7 +3,7 @@
 $is_invalid=false;
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $mysqli=require __DIR__ . "/database.php";
+    $mysqli= require dirname(__DIR__). "/Server/database.php";
 
     $sql=sprintf("SELECT *
                          FROM user
@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             session_start();
             session_regenerate_id();
             $_SESSION["user_id"]=$user["id"];
-            header("Location: index.php");
+            header("Location: ../Server/index.php");
             exit;
         }
     }
@@ -34,8 +34,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Log In</title>
-    <link rel="stylesheet" href="../menuStyle.css">
-    <link rel="stylesheet" href="../loginStyle.css">
+    <link rel="stylesheet" href="../Common/menuStyle.css">
+    <link rel="stylesheet" href="loginStyle.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <link rel="icon" href="../Kepek/icon.jpg">
 </head>
@@ -51,8 +51,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="searchBox">
             <input type="text" placeholder="Search.." name="search">
         </div>
-        <button onclick="window.open('../main.php','_self')">Home Page</button>
-        <button onclick="window.open('../signup.html','_self')">Sign Up</button>
+        <button onclick="window.open('../Main/main.php','_self')">Home Page</button>
+        <button onclick="window.open('../Signup/signup.html','_self')">Sign Up</button>
     </nav>
     <div id="content">
         <form method="post" >
@@ -70,11 +70,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <label for="password">Password:</label>
                 <input type="password" id="password" placeholder="Password..." name="password" required>
             </div>
-            <span>If you don`t have an account, make one <a href="../signup.html">here</a></span><br>
+            <span>If you don`t have an account, make one <a href="../Signup/signup.html">here</a></span><br>
             <button id="loginButton">Log In</button>
             <!-- <p id="errorMessage" style="color: red; display:none">Please fill in all the field, thanks!</p> -->
         </form>
     </div>
-    <script src="../loginScript.js"></script>
+    <script src="loginScript.js"></script>
 </body>
 </html>

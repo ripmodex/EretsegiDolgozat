@@ -25,7 +25,7 @@ if($_POST["password"] !== $_POST["passwordAgain"]){
 
 $passwordHash=password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-$mysqli=require __DIR__ . "/database.php";
+$mysqli= require dirname(__DIR__) . "/Server/database.php";
 
 $sql= "INSERT INTO user(username, email, password_hash)
        VALUES(?, ?, ?)";  //if an error is shown, try fixing this, i fixed it, the problem was i wrote name instead of username
@@ -43,7 +43,7 @@ $stmt->bind_param("sss",
 
 try{
     $stmt->execute();
-    header("Location: ../signupSuccess.html"); //if it is not working properly in the past maybe try with if/else
+    header("Location: ../Signup/signupSuccess.html"); //if it is not working properly in the past maybe try with if/else
     exit;
 }
 catch(mysqli_sql_exception $e){
