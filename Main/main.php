@@ -28,7 +28,7 @@ if (file_exists($path)) {
         <img src="../Kepek/icon.jpg" alt="logo" id="menu-logo">
         <ul>
             <li><a href="javascript:void(0)" onclick="openMap()">Map</a></li>
-            <li><a>Charms</a></li>
+            <li><a onclick="window.open('../Charms/charms.php', '_self')">Charms</a></li>
             <li><a>Screenshots</a></li>
             <li><a>Negyedik</a></li>
         </ul>
