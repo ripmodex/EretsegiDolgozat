@@ -27,8 +27,8 @@ $passwordHash=password_hash($_POST["password"], PASSWORD_DEFAULT);
 
 $mysqli= require dirname(__DIR__) . "/Server/database.php";
 
-$sql= "INSERT INTO user(username, email, password_hash)
-       VALUES(?, ?, ?)";  //if an error is shown, try fixing this, i fixed it, the problem was i wrote name instead of username
+$sql= "INSERT INTO user(username, email, password_hash, role)
+       VALUES(?, ?, ?, ?)";  //if an error is shown, try fixing this, i fixed it, the problem was i wrote name instead of username
 
 $stmt=$mysqli->stmt_init();
 
@@ -36,10 +36,14 @@ if(!$stmt->prepare($sql)){
     die("SQL error: ". $mysqli->error);
 }
 
-$stmt->bind_param("sss",
+$default_role=0;
+
+$stmt->bind_param("sssi",
                   $_POST["username"],
                   $_POST["email"],
-                  $passwordHash);
+                  $passwordHash,
+                  $default_role
+);
 
 try{
     $stmt->execute();

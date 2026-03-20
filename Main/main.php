@@ -30,7 +30,9 @@ if (file_exists($path)) {
             <li><a href="javascript:void(0)" onclick="openMap()">Map</a></li>
             <li><a onclick="window.open('../Charms/charms.php', '_self')">Charms</a></li>
             <li><a>Screenshots</a></li>
-            <li><a>Negyedik</a></li>
+            <?php if($isAdmin): ?>
+                <li><a onclick="window.open('../Charms/addCharm.php', '_self')">Admin</a></li>
+            <?php endif; ?>
         </ul>
         <div class="searchBox">
             <input type="text" placeholder="Search.." name="search">

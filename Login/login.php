@@ -17,8 +17,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if($user){
         if(password_verify($_POST["password"] ,$user["password_hash"])){
             session_start();
-            session_regenerate_id();
+            //session_regenerate_id();
             $_SESSION["user_id"]=$user["id"];
+            $_SESSION["role"]=(int)$user["role"];
+            session_write_close();
             header("Location: ../Server/index.php");
             exit;
         }
@@ -70,7 +72,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <label for="password">Password:</label>
                 <input type="password" id="password" placeholder="Password..." name="password" required>
             </div>
-            <span>If you don`t have an account, make one <a href="../Signup/signup.html">here</a></span><br>
+            <span>If you don't have an account, make one <a href="../Signup/signup.html">here</a></span><br>
             <button id="loginButton">Log In</button>
             <!-- <p id="errorMessage" style="color: red; display:none">Please fill in all the field, thanks!</p> -->
         </form>
