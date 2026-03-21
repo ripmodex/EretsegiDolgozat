@@ -2,6 +2,17 @@
 
 session_start();
 
+global $isAdmin;
+
+$path = dirname(__DIR__) . '/Server/profile.php';
+
+if (file_exists($path)) {
+    require $path;
+} else {
+    echo "Current Directory: " . __DIR__ . "<br>";
+    die("Fatal Error: Could not find the file at: " . $path);
+}
+
 if(isset($_SESSION["user_id"])){
     $mysqli = require __DIR__ . "/database.php";
 
@@ -30,14 +41,17 @@ if(isset($_SESSION["user_id"])){
     <nav id="menu">
         <img src="../Kepek/icon.jpg" alt="logo" id="menu-logo">
         <ul>
-            <li><a>Charms</a></li>
+            <li><a onclick="window.open('../Main/main.php', '_self')">Home</a></li>
+            <li><a onclick="window.open('../Charms/charms.php', '_self')">Charms</a></li>
+            <?php if($isAdmin): ?>
+                <li><a onclick="window.open('../Charms/addCharm.php', '_self')">Admin</a></li>
+            <?php endif; ?>
             <li><a>Screenshots</a></li>
-            <li><a>Negyedik</a></li>
         </ul>
         <div class="searchBox">
             <input type="text" placeholder="Search.." name="search">
         </div>
-        <button onclick="window.open('../Main/main.php','_self')">Home Page</button>
+        <!--<button onclick="window.open('../Main/main.php','_self')">Home Page</button>-->
     </nav>
     <div id="content">
         <h1>Log In to Hollow Wiki</h1>

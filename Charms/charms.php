@@ -1,5 +1,17 @@
 <?php
 
+global $isLoggedIn;
+global $userName;
+
+$path = dirname(__DIR__) . '/Server/profile.php';
+
+if (file_exists($path)) {
+    require $path;
+} else {
+    echo "Current Directory: " . __DIR__ . "<br>";
+    die("Fatal Error: Could not find the file at: " . $path);
+}
+
 $mysqli = require dirname(__DIR__) . "/Server/database.php";
 $result = $mysqli->query("SELECT * FROM charms ORDER BY name ASC");
 
@@ -22,19 +34,19 @@ $result = $mysqli->query("SELECT * FROM charms ORDER BY name ASC");
         <img src="../Kepek/icon.jpg" alt="logo" id="menu-logo">
         <ul>
             <li><a onclick="window.open('../Main/main.php', '_self')">Home</a></li>
-            <li><a href="javascript:void(0)" onclick="openMap()">Map</a></li>
+            <!-- <li><a href="javascript:void(0)" onclick="openMap()">Map</a></li> -->
+            <li><a onclick="window.open('addCharm.php', '_self')">Admin</a></li>
             <li><a>Screenshots</a></li>
-            <li><a>Negyedik</a></li>
         </ul>
         <div class="searchBox">
             <input type="text" placeholder="Search.." name="search">
         </div>
-    <!--    --><?php //if($isLoggedIn):?>
-    <!--        <button onclick="window.open('../Server/index.php', '_self')">--><?php //= htmlspecialchars($userName)?><!--</button>-->
-    <!--    --><?php //else: ?>
-    <!--        <button onclick="window.open('../Login/login.php','_self')">Log In</button>-->
-    <!--        <button onclick="window.open('../Signup/signup.html', '_self')">Sign Up</button>-->
-    <!--    --><?php //endif; ?>
+        <?php if($isLoggedIn):?>
+            <button onclick="window.open('../Server/index.php', '_self')"><?= htmlspecialchars($userName)?></button>
+        <?php else: ?>
+            <button onclick="window.open('../Login/login.php','_self')">Log In</button>
+            <button onclick="window.open('../Signup/signup.html', '_self')">Sign Up</button>
+        <?php endif; ?>
     </nav>
     <div id="bg"></div>
     <div id="content">
@@ -58,7 +70,7 @@ $result = $mysqli->query("SELECT * FROM charms ORDER BY name ASC");
                 <img id="modalImg" src="" alt="">
                 <h2 id="modalName"></h2>
                 <p id="modalDescription"></p>
-                <p id="modalNotches" stlye="color: #3aafff; font-weight: bold;"></p>
+                <p id="modalNotches" style="color: #3aafff; font-weight: bold;"></p>
             </div>
         </div>
     </div>

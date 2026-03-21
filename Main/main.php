@@ -1,5 +1,9 @@
 <?php
 
+global $isLoggedIn;
+global $userName;
+global $isAdmin;
+
 #$path =  __DIR__ . "/Server/profile.php";
 $path = dirname(__DIR__) . '/Server/profile.php';
 
@@ -29,10 +33,10 @@ if (file_exists($path)) {
         <ul>
             <li><a href="javascript:void(0)" onclick="openMap()">Map</a></li>
             <li><a onclick="window.open('../Charms/charms.php', '_self')">Charms</a></li>
-            <li><a>Screenshots</a></li>
             <?php if($isAdmin): ?>
                 <li><a onclick="window.open('../Charms/addCharm.php', '_self')">Admin</a></li>
             <?php endif; ?>
+            <li><a>Screenshots</a></li>
         </ul>
         <div class="searchBox">
             <input type="text" placeholder="Search.." name="search">

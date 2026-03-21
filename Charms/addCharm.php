@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+global $isAdmin;
+global $userName;
+global $isLoggedIn;
+
 $path = dirname(__DIR__) . '/Server/profile.php';
 
 if (file_exists($path)) {
@@ -22,7 +26,7 @@ if(!isset($_SESSION["role"]) || (int)$_SESSION["role"] !== 1){
     exit;
 }
 
-/*
+/* for debugging
 echo "<h3>Session Debugger</h3>";
 echo "User ID: " . ($_SESSION["user_id"] ?? "Not Set") . "<br>";
 echo "Role Value: " . ($_SESSION["role"] ?? "Not Set") . "<br>";
@@ -80,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         <img src="../Kepek/icon.jpg" alt="logo" id="menu-logo">
         <ul>
             <li><a onclick="window.open('../Main/main.php', '_self')">Home</a></li>
-            <li><a href="javascript:void(0)" onclick="openMap()">Map</a></li>
+            <!-- <li><a href="javascript:void(0)" onclick="openMap()">Map</a></li> -->
             <li><a onclick="window.open('../Charms/charms.php', '_self')">Charms</a></li>
             <li><a>Screenshots</a></li>
         </ul>
