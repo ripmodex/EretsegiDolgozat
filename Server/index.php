@@ -29,7 +29,7 @@ if(isset($_SESSION["user_id"])){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Log In</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="../Common/menuStyle.css">
     <!-- <link rel="stylesheet" href="../Common/contentStyle.css"> -->
     <link rel="stylesheet" href="../Login/loginStyle.css">
@@ -43,15 +43,20 @@ if(isset($_SESSION["user_id"])){
         <ul>
             <li><a onclick="window.open('../Main/main.php', '_self')">Home</a></li>
             <li><a onclick="window.open('../Charms/charms.php', '_self')">Charms</a></li>
+            <li><a onclick="window.open('../Screenshots/screenshots.php')">Screenshots</a></li>
             <?php if($isAdmin): ?>
-                <li><a onclick="window.open('../Charms/addCharm.php', '_self')">Admin</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropBtn">Admin Panel</a>
+                    <div class="dropdownContent">
+                        <a onclick="window.open('../Charms/addCharm.php', '_self')">Charms</a>
+                        <a onclick="window.open('../Screenshots/addScreenshot.php', '_self')">Screenshots</a>
+                    </div>
+                </li>
             <?php endif; ?>
-            <li><a>Screenshots</a></li>
         </ul>
         <div class="searchBox">
             <input type="text" placeholder="Search.." name="search">
         </div>
-        <!--<button onclick="window.open('../Main/main.php','_self')">Home Page</button>-->
     </nav>
     <div id="content">
         <h1>Log In to Hollow Wiki</h1>

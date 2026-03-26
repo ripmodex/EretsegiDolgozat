@@ -2,7 +2,7 @@
 
 global $isLoggedIn;
 global $userName;
-global $isLoggedIn;
+global $isAdmin;
 
 $path = dirname(__DIR__) . '/Server/profile.php';
 
@@ -37,55 +37,65 @@ while ($row = $result->fetch_assoc()){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
 <body>
-<nav id="menu">
-    <img src="../Kepek/icon.jpg" alt="logo" id="menu-logo">
-    <ul>
-        <li><a onclick="window.open('../Main/main.php', '_self')">Home</a></li>
-        <li><a onclick="window.open('../Charms/charms.php', '_self')">Charms</a></li>
-        <li><a onclick="window.open('../Screenshots/addScreenshot.php', '_self')">Admin - Screenshots</a></li>
-    </ul>
-    <div class="searchBox">
-        <input type="text" placeholder="Search.." name="search">
-    </div>
-    <?php if($isLoggedIn):?>
-        <button onclick="window.open('../Server/index.php', '_self')"><?= htmlspecialchars($userName)?></button>
-    <?php else: ?>
-        <button onclick="window.open('../Login/login.php','_self')">Log In</button>
-        <button onclick="window.open('../Signup/signup.html', '_self')">Sign Up</button>
-    <?php endif; ?>
-</nav>
-<div id="phpData" dataScreenshots='<?= json_encode($allScreenshots) ?>' style="display: none"></div>
-<div id="bg"></div>
-    <div id="content">
-        <h1>Slideshow</h1>
-        <div id="slideshowContainer">
-            <div id="slideContent">
-                <img id="slideImg" src="" alt="Slideshow">
-                <div id="slideTitle"></div>
-            </div>
+    <nav id="menu">
+        <img src="../Kepek/icon.jpg" alt="logo" id="menu-logo">
+        <ul>
+            <li><a onclick="window.open('../Main/main.php', '_self')">Home</a></li>
+            <li><a onclick="window.open('../Charms/charms.php', '_self')">Charms</a></li>
+            <?php if($isAdmin): ?>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropBtn">Admin Panel</a>
+                    <div class="dropdownContent">
+                        <a onclick="window.open('../Charms/addCharm.php', '_self')">Charms</a>
+                        <a onclick="window.open('../Screenshots/addScreenshot.php', '_self')">Screenshots</a>
+                    </div>
+                </li>
+            <?php endif; ?>
+        </ul>
+        <div class="searchBox">
+            <input type="text" placeholder="Search.." name="search">
         </div>
-        <br><br><br>
-        <h1>Screenshots</h1>
-        <div id="ssModal" class="modal" onclick="this.style.display='none'">
-            <div class="modalContent" onclick="event.stopPropagation()">
-                <span class="close" onclick="document.getElementById('ssModal').style.display='none'"
-                      style="float: right; font-size: 30px; cursor: pointer; margin-right: 15px; color: red">&times;</span>
-                <img id="modalSSImg" src="" style="width:100%">
-                <div class="modalInfo" style="text-align: center; color: white; padding-top: 15px">
-                    <h2 id="modalSSTitle" style="margin: 5px 0"></h2>
-                    <p id="modalSSCaption" style="font-style: italic; color: #bbb;"></p>
+        <?php if($isLoggedIn):?>
+            <button onclick="window.open('../Server/index.php', '_self')"><?= htmlspecialchars($userName)?></button>
+        <?php else: ?>
+            <button onclick="window.open('../Login/login.php','_self')">Log In</button>
+            <button onclick="window.open('../Signup/signup.html', '_self')">Sign Up</button>
+        <?php endif; ?>
+    </nav>
+    <div id="phpData" dataScreenshots='<?= json_encode($allScreenshots) ?>' style="display: none"></div>
+    <div id="bg"></div>
+        <div id="content">
+            <h1>Slideshow</h1>
+            <div id="slideshowContainer" style="width: 85%; max-width: 1000px; margin: auto;">
+                <div id="slideContent">
+                    <img id="slideImg" src="" alt="Slideshow">
+                    <div id="slideTitle"></div>
+                    <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>-->
+                    <!-- <a class="next" onclick="plusSlides(1)">&#10095;</a>-->
                 </div>
             </div>
-        </div>
-        <div id="screenshotGrid">
-            <?php foreach($allScreenshots as $ss): ?>
-                <div class="ssCard" onclick="openSSModal(<?=htmlspecialchars(json_encode($ss))?>)">
-                    <img src="../Kepek/Screenshots/<?= $ss['imagePath'] ?>" alt="Screenshot" style="margin: 5px;">
-                    <div class="ssOverlay" style="margin: 5px;">View details</div>
+            <br><br><br>
+            <h1>Screenshots</h1>
+            <div id="ssModal" class="modal" onclick="this.style.display='none'">
+                <div class="modalContent" onclick="event.stopPropagation()">
+                    <span class="close" onclick="document.getElementById('ssModal').style.display='none'"
+                          style="float: right; font-size: 30px; cursor: pointer; margin-right: 15px; color: red">&times;</span>
+                    <img id="modalSSImg" src="" style="width:100%">
+                    <div class="modalInfo" style="text-align: center; color: white; padding-top: 15px">
+                        <h2 id="modalSSTitle" style="margin: 5px 0"></h2>
+                        <p id="modalSSCaption" style="font-style: italic; color: #bbb;"></p>
+                    </div>
                 </div>
-            <?php endforeach; ?>
+            </div>
+            <div id="screenshotGrid">
+                <?php foreach($allScreenshots as $ss): ?>
+                    <div class="ssCard" onclick="openSSModal(<?=htmlspecialchars(json_encode($ss))?>)">
+                        <img src="../Kepek/Screenshots/<?= $ss['imagePath'] ?>" alt="Screenshot" style="margin: 5px; max-width: 1000px;">
+                        <div class="ssOverlay" style="margin: 5px;">View details</div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
         </div>
-    </div>
-<script src="screenshotScript.js"></script>
+    <script src="screenshotScript.js"></script>
 </body>
 </html>

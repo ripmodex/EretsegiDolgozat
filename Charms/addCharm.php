@@ -84,8 +84,12 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         <img src="../Kepek/icon.jpg" alt="logo" id="menu-logo">
         <ul>
             <li><a onclick="window.open('../Main/main.php', '_self')">Home</a></li>
-            <!-- <li><a onclick="window.open('../Charms/charms.php', '_self')">Charms</a></li> -->
-            <li><a onclick="window.open('../Screenshots/addScreenshot.php', '_self')">Admin - Screenshots</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropBtn">Admin Panel</a>
+                <div class="dropdownContent">
+                    <a onclick="window.open('../Screenshots/addScreenshot.php', '_self')">Screenshots</a>
+                </div>
+            </li>
         </ul>
         <div class="searchBox">
             <input type="text" placeholder="Search.." name="search">

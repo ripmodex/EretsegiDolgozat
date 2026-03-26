@@ -4,10 +4,6 @@ if(session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-//$isLoggedIn = false;
-//$username = "";
-//$isAdmin = false;
-
 $isLoggedIn = isset($_SESSION["user_id"]);
 $username = $_SESSION["username"] ?? "";
 $isAdmin = isset($_SESSION["role"]) && $_SESSION["role"] === 1;
@@ -22,10 +18,4 @@ if(isset($_SESSION['user_id'])){
         $userName=$user["username"];
         $isAdmin=((int)$user["role"]===1);
     }
-    /*
-    if($user = $result->fetch_assoc()){
-        if((int)$user["role"]===1){
-            $isAdmin = true;
-        }
-    }*/
 }

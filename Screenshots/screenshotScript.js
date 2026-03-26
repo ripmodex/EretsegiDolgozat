@@ -22,3 +22,35 @@ function openSSModal(data){
     document.getElementById("ssModal").style.display = "flex";
 }
 
+document.addEventListener('keydown', function(event){
+   if(event.key === 'Escape'){
+       const modal = document.getElementById("ssModal");
+       if(modal.style.display === 'flex'){
+           modal.style.display = 'none';
+       }
+   }
+});
+
+/* it is not working but i don't know if i want it to work yet, or just leave it out
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n){
+    showSlides(slideIndex += n);
+}
+
+function showSlides(n){
+    let slides = document.getElementsByClassName('slide');
+
+    if(n > slides.length) {slideIndex = 1}
+    if(n < 1) {slideIndex = slides.length}
+
+    for(let i=0; i<slides.length; i++){
+        slides[i].style.display = 'none';
+    }
+
+    if(slides[slideIndex-1]) {
+        slides[slideIndex - 1].style.display = 'block';
+    }
+}
+*/

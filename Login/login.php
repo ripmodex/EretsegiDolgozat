@@ -46,14 +46,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <nav id="menu">
         <img src="../Kepek/icon.jpg" alt="logo" id="menu-logo">
         <ul>
-            <li><a>Charms</a></li>
-            <li><a>Screenshots</a></li>
-            <li><a>Negyedik</a></li>
+            <li><a onclick="window.open('../Main/main.php','_self')">Home</a></li>
+            <li><a onclick="window.open('../Charms/charms.php', '_self')">Charms</a></li>
+            <li><a onclick="window.open('../Screenshots/screenshots.php', '_self')">Screenshots</a></li>
         </ul>
         <div class="searchBox">
             <input type="text" placeholder="Search.." name="search">
         </div>
-        <button onclick="window.open('../Main/main.php','_self')">Home Page</button>
         <button onclick="window.open('../Signup/signup.html','_self')">Sign Up</button>
     </nav>
     <div id="content">

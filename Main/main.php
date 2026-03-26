@@ -35,12 +35,13 @@ if (file_exists($path)) {
             <li><a onclick="window.open('../Charms/charms.php', '_self')">Charms</a></li>
             <li><a onclick="window.open('../Screenshots/screenshots.php', '_self')">Screenshots</a></li>
             <?php if($isAdmin): ?>
-                <select name="admin">
-                    <option value="" disabled selected hidden>Admin panel</option>
-
-                    <option onclick="window.open('../Charms/addCharm.php', '_self')">Charms</option>
-                    <option onclick="window.open('../Screenshots/addScreenshot.php', '_self')">Screenshots</option>
-                </select>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropBtn">Admin Panel</a>
+                    <div class="dropdownContent">
+                        <a onclick="window.open('../Charms/addCharm.php', '_self')">Charms</a>
+                        <a onclick="window.open('../Screenshots/addScreenshot.php', '_self')">Screenshots</a>
+                    </div>
+                </li>
             <?php endif; ?>
         </ul>
         <div class="searchBox">

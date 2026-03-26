@@ -2,6 +2,7 @@
 
 global $isLoggedIn;
 global $userName;
+global $isAdmin;
 
 $path = dirname(__DIR__) . '/Server/profile.php';
 
@@ -34,8 +35,16 @@ $result = $mysqli->query("SELECT * FROM charms ORDER BY name ASC");
         <img src="../Kepek/icon.jpg" alt="logo" id="menu-logo">
         <ul>
             <li><a onclick="window.open('../Main/main.php', '_self')">Home</a></li>
-            <li><a onclick="window.open('addCharm.php', '_self')">Admin - Charms</a></li>
             <li><a onclick="window.open('../Screenshots/screenshots.php', '_self')">Screenshots</a></li>
+            <?php if($isAdmin): ?>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropBtn">Admin Panel</a>
+                    <div class="dropdownContent">
+                        <a onclick="window.open('../Charms/addCharm.php', '_self')">Charms</a>
+                        <a onclick="window.open('../Screenshots/addScreenshot.php', '_self')">Screenshots</a>
+                    </div>
+                </li>
+            <?php endif; ?>
         </ul>
         <div class="searchBox">
             <input type="text" placeholder="Search.." name="search">
