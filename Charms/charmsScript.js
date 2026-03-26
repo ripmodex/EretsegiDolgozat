@@ -1,9 +1,10 @@
-function showDetails(name, desc, img, notches){
+function showDetails(name, desc, location, category, img, notches){
     console.log("Clicked!");
     document.getElementById("modalName").innerText = name;
     document.getElementById("modalDescription").innerText = desc;
+    document.getElementById("modalLocation").innerText = "Location: " + location;
+    document.getElementById("modalCategory").innerText = "Category: " + category;
     document.getElementById("modalImg").src = img;
-    //document.getElementById("modalNotches").innerText = "Notches: " + notches;
     const notchContainer = document.getElementById("modalNotches");
     notchContainer.innerHTML = "";
     for(let i=0; i<notches; i++){

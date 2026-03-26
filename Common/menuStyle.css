@@ -6,7 +6,7 @@
     height: auto;
     background-color: rgba(0, 0, 0, 0.9);
     display: flex;
-    align-items: stretch;
+    align-items: center;
     padding: 10px 0;
     z-index: 2;
 }
@@ -50,6 +50,19 @@
     width: auto;
     height: 100%;
 }
+
+/* little upper than the rest but it is minimal error, maybe it is with the vertical align */
+#menu select{
+    width: auto;
+    font-size: 12px;
+    height: 26px !important;
+    line-height: 26px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    text-align-last: center;
+    vertical-align: middle;
+}
+
 /*
 .menuButtonSignInLogIn{
     border: none;

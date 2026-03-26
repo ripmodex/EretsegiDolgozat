@@ -1,20 +1,3 @@
-/*document.addEventListener("DOMContentLoaded", function() {
-    const loginButton=document.getElementById("loginButton");
-
-    loginButton.addEventListener("click", function() {
-        window.open("login.html", "_blank");
-    })
-})
-
-document.addEventListener("DOMContentLoaded", function() {
-    const signupButton=document.getElementById("signupButton");
-
-    signupButton.addEventListener("click", function() {
-        window.open("signup.html", "_blank");
-    })
-})
-*/ //maybe it is too complicated for my sake, but for now I won`t delete it
-
 function openMap(){
     document.getElementById("mapOverlay").style.display="flex"
     //setTimeout(makeMapResponsive, 50);
@@ -42,13 +25,14 @@ function resetImage(){
     mapImage.src=originalSrc;
 }
 
+//just for debugging, I found the right way, and I did the mapping with this, getting coords of each area
+/*
 document.getElementById('mapDisplay').addEventListener('click', function(e) {
     const rect = this.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     console.log("Current Pixel Coords: " + Math.round(x) + ", " + Math.round(y));
-});
-//just for debugging, I found the right way, and I did the mapping with this, getting coords of each area
+});*/
 
 function playHoverSound(){
     const sound=document.getElementById("hoverSound");

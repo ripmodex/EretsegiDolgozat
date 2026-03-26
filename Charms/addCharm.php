@@ -84,9 +84,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         <img src="../Kepek/icon.jpg" alt="logo" id="menu-logo">
         <ul>
             <li><a onclick="window.open('../Main/main.php', '_self')">Home</a></li>
-            <!-- <li><a href="javascript:void(0)" onclick="openMap()">Map</a></li> -->
-            <li><a onclick="window.open('../Charms/charms.php', '_self')">Charms</a></li>
-            <li><a>Screenshots</a></li>
+            <!-- <li><a onclick="window.open('../Charms/charms.php', '_self')">Charms</a></li> -->
+            <li><a onclick="window.open('../Screenshots/addScreenshot.php', '_self')">Admin - Screenshots</a></li>
         </ul>
         <div class="searchBox">
             <input type="text" placeholder="Search.." name="search">
@@ -111,7 +110,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
                 <input type="text" name="location" placeholder="Found in..." style="width: 20ch;">
                 <input type="text" name="category" placeholder="Category..." style="width: 20ch;">
 
-                <label>Charm icon: </label>
+                <!-- <label>Charm icon: </label> -->
                 <input type="file" name="image" accept="image/*" required>
 
                 <button type="submit">Upload Charm</button>

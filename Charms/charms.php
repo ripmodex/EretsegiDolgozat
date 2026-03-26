@@ -34,9 +34,8 @@ $result = $mysqli->query("SELECT * FROM charms ORDER BY name ASC");
         <img src="../Kepek/icon.jpg" alt="logo" id="menu-logo">
         <ul>
             <li><a onclick="window.open('../Main/main.php', '_self')">Home</a></li>
-            <!-- <li><a href="javascript:void(0)" onclick="openMap()">Map</a></li> -->
-            <li><a onclick="window.open('addCharm.php', '_self')">Admin</a></li>
-            <li><a>Screenshots</a></li>
+            <li><a onclick="window.open('addCharm.php', '_self')">Admin - Charms</a></li>
+            <li><a onclick="window.open('../Screenshots/screenshots.php', '_self')">Screenshots</a></li>
         </ul>
         <div class="searchBox">
             <input type="text" placeholder="Search.." name="search">
@@ -55,6 +54,8 @@ $result = $mysqli->query("SELECT * FROM charms ORDER BY name ASC");
                 <div class="charmCard" onclick="showDetails(
                         '<?= htmlspecialchars($row['name']) ?>',
                         '<?= htmlspecialchars($row['description']) ?>',
+                        '<?= htmlspecialchars($row['location']) ?>',
+                        '<?= htmlspecialchars($row['category']) ?>',
                         '../Kepek/Charms/<?= $row['imagePath'] ?>',
                         '<?= $row['notches'] ?>'
                 )">
@@ -70,6 +71,8 @@ $result = $mysqli->query("SELECT * FROM charms ORDER BY name ASC");
                 <img id="modalImg" src="" alt="">
                 <h2 id="modalName"></h2>
                 <p id="modalDescription"></p>
+                <p id="modalLocation"></p>
+                <p id="modalCategory"></p>
                 <p id="modalNotches" style="color: #3aafff; font-weight: bold;"></p>
             </div>
         </div>

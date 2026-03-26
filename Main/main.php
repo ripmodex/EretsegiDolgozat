@@ -33,10 +33,15 @@ if (file_exists($path)) {
         <ul>
             <li><a href="javascript:void(0)" onclick="openMap()">Map</a></li>
             <li><a onclick="window.open('../Charms/charms.php', '_self')">Charms</a></li>
+            <li><a onclick="window.open('../Screenshots/screenshots.php', '_self')">Screenshots</a></li>
             <?php if($isAdmin): ?>
-                <li><a onclick="window.open('../Charms/addCharm.php', '_self')">Admin</a></li>
+                <select name="admin">
+                    <option value="" disabled selected hidden>Admin panel</option>
+
+                    <option onclick="window.open('../Charms/addCharm.php', '_self')">Charms</option>
+                    <option onclick="window.open('../Screenshots/addScreenshot.php', '_self')">Screenshots</option>
+                </select>
             <?php endif; ?>
-            <li><a>Screenshots</a></li>
         </ul>
         <div class="searchBox">
             <input type="text" placeholder="Search.." name="search">
