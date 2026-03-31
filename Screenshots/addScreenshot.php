@@ -60,34 +60,15 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
 <head>
     <meta charset="UTF-8">
     <title>Admin - Add Screenshot</title>
-    <link rel="stylesheet" href="../Main/mainStyle.css">
+    <link rel="stylesheet" href="../Common/mapStyle.css">
     <link rel="stylesheet" href="../Common/menuStyle.css">
     <link rel="stylesheet" href="../Common/contentStyle.css">
     <link rel="icon" type="image/jpg" href="../Kepek/icon.jpg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
 <body>
-    <nav id="menu">
-        <img src="../Kepek/icon.jpg" alt="logo" id="menu-logo">
-        <ul>
-            <li><a onclick="window.open('../Main/main.php', '_self')">Home</a></li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropBtn">Admin Panel</a>
-                <div class="dropdownContent">
-                    <a onclick="window.open('../Charms/addCharm.php', '_self')">Charms</a>
-                </div>
-            </li>
-        </ul>
-        <div class="searchBox">
-            <input type="text" placeholder="Search.." name="search">
-        </div>
-        <?php if($isLoggedIn):?>
-            <button onclick="window.open('../Server/index.php', '_self')"><?= htmlspecialchars($userName)?></button>
-        <?php else: ?>
-            <button onclick="window.open('../Login/login.php','_self')">Log In</button>
-            <button onclick="window.open('../Signup/signup.html', '_self')">Sign Up</button>
-        <?php endif; ?>
-    </nav>
+    <?php include '../Common/nav.php'; ?>
+    <?php include '../Common/map.php'; ?>
     <div id="bg"></div>
     <div id="content">
         <div class="adminContainer">
@@ -97,8 +78,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
             <form action="addScreenshot.php" method="POST" enctype="multipart/form-data">
                 <input type="text" name="title" placeholder="Title.." style="width: 40ch;" required>
                 <textarea name="caption" placeholder="Caption.." required></textarea>
-
-                <!-- <label>Screenshot: </label> -->
                 <input type="file" name="imagePath" accept="image/*" required>
 
                 <button type="submit">Upload Screenshot</button>
@@ -106,5 +85,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
             <a href="screenshots.php">Back to Screenshots</a>
         </div>
     </div>
+    <script src="../Common/mapScript.js"></script>
 </body>
 </html>

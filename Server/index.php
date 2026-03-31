@@ -18,9 +18,9 @@ if(isset($_SESSION["user_id"])){
 
     $sql = "SELECT * FROM user WHERE id={$_SESSION["user_id"]}";
 
-    $result = $mysqli->query($sql);
+    $indexResult = $mysqli->query($sql);
 
-    $user = $result->fetch_assoc();
+    $user = $indexResult->fetch_assoc();
 }
 
 ?>
@@ -31,41 +31,24 @@ if(isset($_SESSION["user_id"])){
     <meta charset="UTF-8">
     <title>Profile</title>
     <link rel="stylesheet" href="../Common/menuStyle.css">
-    <!-- <link rel="stylesheet" href="../Common/contentStyle.css"> -->
+    <link rel="stylesheet" href="../Common/mapStyle.css">
     <link rel="stylesheet" href="../Login/loginStyle.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <link rel="icon" href="../Kepek/icon.jpg">
 </head>
 <body>
+    <?php include '../Common/nav.php'; ?>
+    <?php include '../Common/map.php'; ?>
     <div id="bg"></div>
-    <nav id="menu">
-        <img src="../Kepek/icon.jpg" alt="logo" id="menu-logo">
-        <ul>
-            <li><a onclick="window.open('../Main/main.php', '_self')">Home</a></li>
-            <li><a onclick="window.open('../Charms/charms.php', '_self')">Charms</a></li>
-            <li><a onclick="window.open('../Screenshots/screenshots.php')">Screenshots</a></li>
-            <?php if($isAdmin): ?>
-                <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropBtn">Admin Panel</a>
-                    <div class="dropdownContent">
-                        <a onclick="window.open('../Charms/addCharm.php', '_self')">Charms</a>
-                        <a onclick="window.open('../Screenshots/addScreenshot.php', '_self')">Screenshots</a>
-                    </div>
-                </li>
-            <?php endif; ?>
-        </ul>
-        <div class="searchBox">
-            <input type="text" placeholder="Search.." name="search">
-        </div>
-    </nav>
     <div id="content">
         <h1>Log In to Hollow Wiki</h1>
         <?php if(isset($user)): ?>
             <p>Hello <?= htmlspecialchars($user["username"]) ?></p>
             <p><a href="logout.php">Log out</a></p>
         <?php else: ?>
-            <p><a href="../Login/login.php">Log in</a> or <a href="../Signup/signup.html">Sign up</a></p>
+            <p><a href="../Login/login.php">Log in</a> or <a href="../Signup/signup.php">Sign up</a></p>
         <?php endif; ?>
     </div>
+    <script src="../Common/mapScript.js"></script>
 </body>
 </html>

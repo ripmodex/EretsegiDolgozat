@@ -72,7 +72,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
 <head>
     <meta charset="UTF-8">
     <title>Admin - Add Charm</title>
-    <link rel="stylesheet" href="../Main/mainStyle.css">
+    <link rel="stylesheet" href="../Common/mapStyle.css">
     <link rel="stylesheet" href="../Common/menuStyle.css">
     <link rel="stylesheet" href="../Common/contentStyle.css">
     <link rel="stylesheet" href="charmStyle.css">
@@ -80,27 +80,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
 <body>
-    <nav id="menu">
-        <img src="../Kepek/icon.jpg" alt="logo" id="menu-logo">
-        <ul>
-            <li><a onclick="window.open('../Main/main.php', '_self')">Home</a></li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropBtn">Admin Panel</a>
-                <div class="dropdownContent">
-                    <a onclick="window.open('../Screenshots/addScreenshot.php', '_self')">Screenshots</a>
-                </div>
-            </li>
-        </ul>
-        <div class="searchBox">
-            <input type="text" placeholder="Search.." name="search">
-        </div>
-        <?php if($isLoggedIn):?>
-            <button onclick="window.open('../Server/index.php', '_self')"><?= htmlspecialchars($userName)?></button>
-        <?php else: ?>
-            <button onclick="window.open('../Login/login.php','_self')">Log In</button>
-            <button onclick="window.open('../Signup/signup.html', '_self')">Sign Up</button>
-        <?php endif; ?>
-    </nav>
+    <?php include '../Common/nav.php'; ?>
+    <?php include '../Common/map.php'; ?>
     <div id="bg"></div>
     <div id="content">
         <div class="adminContainer">
@@ -113,8 +94,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
                 <input type="number" name="notches" placeholder="Notch cost" min="1" max="5" style="width: 20ch;" required>
                 <input type="text" name="location" placeholder="Found in..." style="width: 20ch;">
                 <input type="text" name="category" placeholder="Category..." style="width: 20ch;">
-
-                <!-- <label>Charm icon: </label> -->
                 <input type="file" name="image" accept="image/*" required>
 
                 <button type="submit">Upload Charm</button>
@@ -122,5 +101,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
             <a href="charms.php">Back to Charms</a>
         </div>
     </div>
+    <script src="../Common/mapScript.js"></script>
 </body>
 </html>

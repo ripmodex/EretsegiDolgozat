@@ -47,7 +47,7 @@ $stmt->bind_param("sssi",
 
 try{
     $stmt->execute();
-    header("Location: ../Signup/signupSuccess.html"); //if it is not working properly in the past maybe try with if/else
+    header("Location: ../Signup/signupSuccess.php"); //if it is not working properly in the past maybe try with if/else
     exit;
 }
 catch(mysqli_sql_exception $e){

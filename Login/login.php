@@ -17,7 +17,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if($user){
         if(password_verify($_POST["password"] ,$user["password_hash"])){
             session_start();
-            //session_regenerate_id();
             $_SESSION["user_id"]=$user["id"];
             $_SESSION["role"]=(int)$user["role"];
             session_write_close();
@@ -37,24 +36,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <title>Log In</title>
     <link rel="stylesheet" href="../Common/menuStyle.css">
+    <link rel="stylesheet" href="../Common/mapStyle.css">
     <link rel="stylesheet" href="loginStyle.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <link rel="icon" href="../Kepek/icon.jpg">
 </head>
 <body>
+    <?php include '../Common/nav.php'; ?>
+    <?php include '../Common/map.php'; ?>
     <div id="bg"></div>
-    <nav id="menu">
-        <img src="../Kepek/icon.jpg" alt="logo" id="menu-logo">
-        <ul>
-            <li><a onclick="window.open('../Main/main.php','_self')">Home</a></li>
-            <li><a onclick="window.open('../Charms/charms.php', '_self')">Charms</a></li>
-            <li><a onclick="window.open('../Screenshots/screenshots.php', '_self')">Screenshots</a></li>
-        </ul>
-        <div class="searchBox">
-            <input type="text" placeholder="Search.." name="search">
-        </div>
-        <button onclick="window.open('../Signup/signup.html','_self')">Sign Up</button>
-    </nav>
     <div id="content">
         <form method="post" >
             <h1>Log In to Hollow Wiki</h1>
@@ -71,11 +61,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <label for="password">Password:</label>
                 <input type="password" id="password" placeholder="Password..." name="password" required>
             </div>
-            <span>If you don't have an account, make one <a href="../Signup/signup.html">here</a></span><br>
+            <span>If you don't have an account, make one <a href="../Signup/signup.php">here</a></span><br>
             <button id="loginButton">Log In</button>
             <!-- <p id="errorMessage" style="color: red; display:none">Please fill in all the field, thanks!</p> -->
         </form>
     </div>
     <script src="loginScript.js"></script>
+    <script src="../Common/mapScript.js"></script>
 </body>
 </html>
