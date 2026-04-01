@@ -11,7 +11,7 @@
     <script src="signupScript.js" defer></script>
 </head>
 <body>
-    <?php include '../Common/nav.php'; ?>
+    <?php include '../Common/menu.php'; ?>
     <?php include '../Common/map.php'; ?>
     <div id="bg"></div>
 <!--    <nav id="menu">-->

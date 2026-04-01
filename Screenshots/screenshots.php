@@ -4,15 +4,6 @@ global $isLoggedIn;
 global $userName;
 global $isAdmin;
 
-$path = dirname(__DIR__) . '/Server/profile.php';
-
-if (file_exists($path)) {
-    require $path;
-} else {
-    echo "Current Directory: " . __DIR__ . "<br>";
-    die("Fatal Error: Could not find the file at: " . $path);
-}
-
 $mysqli = require dirname(__DIR__) . '/Server/database.php';
 $sql = "SELECT * FROM screenshots ORDER BY id DESC";
 $result = $mysqli->query($sql);
@@ -37,7 +28,7 @@ while ($row = $result->fetch_assoc()){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
 <body>
-    <?php include '../Common/nav.php'; ?>
+    <?php include '../Common/menu.php'; ?>
     <?php include '../Common/map.php'; ?>
 <!--    <nav id="menu">-->
 <!--        <img src="../Kepek/icon.jpg" alt="logo" id="menu-logo">-->

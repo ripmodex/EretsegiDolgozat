@@ -6,13 +6,6 @@ global $isAdmin;
 
 $path = dirname(__DIR__) . '/Server/profile.php';
 
-if (file_exists($path)) {
-    require $path;
-} else {
-    echo "Current Directory: " . __DIR__ . "<br>";
-    die("Fatal Error: Could not find the file at: " . $path);
-}
-
 if(isset($_SESSION["user_id"])){
     $mysqli = require __DIR__ . "/database.php";
 
@@ -37,7 +30,7 @@ if(isset($_SESSION["user_id"])){
     <link rel="icon" href="../Kepek/icon.jpg">
 </head>
 <body>
-    <?php include '../Common/nav.php'; ?>
+    <?php include '../Common/menu.php'; ?>
     <?php include '../Common/map.php'; ?>
     <div id="bg"></div>
     <div id="content">

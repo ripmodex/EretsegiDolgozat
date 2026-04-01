@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
 <body>
-    <?php include '../Common/nav.php'; ?>
+    <?php include '../Common/menu.php'; ?>
     <?php include '../Common/map.php'; ?>
     <div id="bg"></div>
     <div id="content">

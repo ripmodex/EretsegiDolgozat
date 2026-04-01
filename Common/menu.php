@@ -16,14 +16,19 @@ if (file_exists($path)) {
 
 <nav id="menu">
     <img src="../Kepek/icon.jpg" alt="logo" id="menu-logo">
+    <?php $currentPage = basename($_SERVER['PHP_SELF']); ?>
     <ul>
-        <li><a onclick="window.open('../Main/main.php', '_self')">Home</a></li>
+        <li><a onclick="window.open('../Main/main.php', '_self')"
+               class="<?= ($currentPage == 'main.php') ? 'active' : '' ?>">Home</a></li>
         <li><a href="javascript:void(0)" onclick="openMap()">Map</a></li>
-        <li><a onclick="window.open('../Charms/charms.php', '_self')">Charms</a></li>
-        <li><a onclick="window.open('../Screenshots/screenshots.php', '_self')">Screenshots</a></li>
+        <li><a onclick="window.open('../Charms/charms.php', '_self')"
+                class="<?= ($currentPage == 'charms.php') ? 'active' : '' ?>">Charms</a></li>
+        <li><a onclick="window.open('../Screenshots/screenshots.php', '_self')"
+                class="<?= ($currentPage == 'screenshots.php') ? 'active' : '' ?>">Screenshots</a></li>
         <?php if($isAdmin): ?>
             <li class="dropdown">
-                <a href="javascript:void(0)" class="dropBtn">Admin Panel</a>
+                <a href="javascript:void(0)" class="dropBtn
+                <?= ($currentPage == 'addCharm.php' || $currentPage == 'addScreenshot.php') ? 'active' : '' ?>">Admin Panel</a>
                 <div class="dropdownContent">
                     <a onclick="window.open('../Charms/addCharm.php', '_self')">Charms</a>
                     <a onclick="window.open('../Screenshots/addScreenshot.php', '_self')">Screenshots</a>

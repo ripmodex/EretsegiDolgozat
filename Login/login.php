@@ -42,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link rel="icon" href="../Kepek/icon.jpg">
 </head>
 <body>
-    <?php include '../Common/nav.php'; ?>
+    <?php include '../Common/menu.php'; ?>
     <?php include '../Common/map.php'; ?>
     <div id="bg"></div>
     <div id="content">

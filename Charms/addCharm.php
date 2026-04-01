@@ -5,26 +5,17 @@ global $isAdmin;
 global $userName;
 global $isLoggedIn;
 
-$path = dirname(__DIR__) . '/Server/profile.php';
-
-if (file_exists($path)) {
-    require $path;
-} else {
-    echo "Current Directory: " . __DIR__ . "<br>";
-    die("Fatal Error: Could not find the file at: " . $path);
-}
-
-if(!isset($_SESSION["user_id"])) {
-    //die("Session ID is missing. You are not logged in.");
-    header("Location: ../Login/login.php");
-    exit;
-}
-
-if(!isset($_SESSION["role"]) || (int)$_SESSION["role"] !== 1){
-    //die("Role mismatch. Your role is: " . $_SESSION["role"]);
-    header("Location: ../Main/main.php");
-    exit;
-}
+//if(!isset($_SESSION["user_id"])) {
+//    //die("Session ID is missing. You are not logged in.");
+//    header("Location: ../Login/login.php");
+//    exit;
+//}
+//
+//if(!isset($_SESSION["role"]) || (int)$_SESSION["role"] !== 1){
+//    //die("Role mismatch. Your role is: " . $_SESSION["role"]);
+//    header("Location: ../Main/main.php");
+//    exit;
+//}
 
 /* for debugging
 echo "<h3>Session Debugger</h3>";
@@ -80,7 +71,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
 <body>
-    <?php include '../Common/nav.php'; ?>
+    <?php include '../Common/menu.php'; ?>
     <?php include '../Common/map.php'; ?>
     <div id="bg"></div>
     <div id="content">

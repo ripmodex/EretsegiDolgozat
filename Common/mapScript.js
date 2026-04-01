@@ -2,6 +2,7 @@ function openMap(){
     const overlay = document.getElementById("mapOverlay");
     if(overlay){
         overlay.style.display="flex";
+        overlay.classList.add("active");
     }
 }
 
@@ -9,6 +10,7 @@ function closeMap(){
     const overlay = document.getElementById("mapOverlay");
     if(overlay){
         overlay.style.display="none";
+        overlay.classList.remove("active");
     }
 }
 

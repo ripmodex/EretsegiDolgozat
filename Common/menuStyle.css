@@ -36,6 +36,13 @@
     transition: color 0.3s;
 }
 
+#menu ul li a.active{
+    color: #3aafff;
+    text-shadow: 0 0 10px #3aafff, 0 0 20px #3aafff;
+    font-weight: bold;
+    border-bottom: 2px solid #3aafff;
+}
+
 #menu ul li a:hover{
     color: #00aaff;
 }

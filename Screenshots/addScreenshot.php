@@ -7,13 +7,6 @@ global $isLoggedIn;
 
 $path = dirname(__DIR__) . '/Server/profile.php';
 
-if (file_exists($path)) {
-    require $path;
-} else {
-    echo "Current Directory: " . __DIR__ . "<br>";
-    die("Fatal Error: Could not find the file at: " . $path);
-}
-
 if(!isset($_SESSION["user_id"])) {
     header("Location: ../Login/login.php");
     exit;
@@ -67,7 +60,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
 <body>
-    <?php include '../Common/nav.php'; ?>
+    <?php include '../Common/menu.php'; ?>
     <?php include '../Common/map.php'; ?>
     <div id="bg"></div>
     <div id="content">

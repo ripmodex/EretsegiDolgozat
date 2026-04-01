@@ -1,1 +1,52 @@
-/* hat ez most ki urult, ugy latszik mar nem kell, de meg nem torlom */
+html{
+    scroll-behavior: smooth;
+}
+
+hr{
+    border: none;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(to right, transparent, #00aaff, transparent);
+    /*background-color: #1a3a4a; */
+    border-radius: 5px;
+    margin: 20px auto;
+    opacity: 0.6;
+}
+
+.areaCard{
+    display: flex;
+    background: rgba(10, 20, 30, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 170, 255, 0.2);
+    margin-bottom: 30px;
+    border-radius: 5px;
+    overflow: hidden;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.areaCard:hover{
+    border-color: #00aaff;
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.1);
+}
+
+.areaImageContainer{
+    flex: 1;
+    max-width: 400px;
+}
+
+.areaImageContainer img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.areaText{
+    flex: 2;
+    padding: 20px;
+}
+
+.areaText h2{
+    color: #73d2ff;
+    margin-top: 0;
+}

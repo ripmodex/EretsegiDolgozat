@@ -6,15 +6,8 @@ global $isAdmin;
 
 $path = dirname(__DIR__) . '/Server/profile.php';
 
-if (file_exists($path)) {
-    require $path;
-} else {
-    echo "Current Directory: " . __DIR__ . "<br>";
-    die("Fatal Error: Could not find the file at: " . $path);
-}
-
 $mysqli = require dirname(__DIR__) . "/Server/database.php";
-$charmresult = $mysqli->query("SELECT * FROM charms ORDER BY name ASC");
+$charmResult = $mysqli->query("SELECT * FROM charms ORDER BY name ASC");
 
 ?>
 
@@ -31,12 +24,12 @@ $charmresult = $mysqli->query("SELECT * FROM charms ORDER BY name ASC");
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
 <body>
-    <?php include '../Common/nav.php'; ?>
+    <?php include '../Common/menu.php'; ?>
     <?php include '../Common/map.php'; ?>
     <div id="bg"></div>
     <div id="content">
         <div id="charmsContainer">
-            <?php while($row=$charmresult->fetch_assoc()): ?>
+            <?php while($row=$charmResult->fetch_assoc()): ?>
                 <div class="charmCard" onclick="showDetails(
                         '<?= htmlspecialchars($row['name']) ?>',
                         '<?= htmlspecialchars($row['description']) ?>',
