@@ -1,5 +1,5 @@
 const dataElement = document.getElementById("phpData");
-const slides = JSON.parse(dataElement.getAttribute("dataScreenshots"));
+const slides = JSON.parse(dataElement.getAttribute("dataScreenshots") || "{}");
 let currentIndex = 0;
 
 function runSlideshow(){

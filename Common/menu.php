@@ -36,13 +36,17 @@ if (file_exists($path)) {
             </li>
         <?php endif; ?>
     </ul>
-    <div class="searchBox">
-        <input type="text" placeholder="Search.." name="search">
-    </div>
-    <?php if($isLoggedIn):?>
-        <button onclick="window.open('../Server/index.php', '_self')"><?= htmlspecialchars($userName)?></button>
-    <?php else: ?>
-        <button onclick="window.open('../Login/login.php','_self')">Log In</button>
-        <button onclick="window.open('../Signup/signup.php', '_self')">Sign Up</button>
+    <?php if($currentPage === 'main.php'): ?>
+        <div class="searchBox">
+            <input type="search" placeholder="Search.." name="search" data-search-area>
+        </div>
     <?php endif; ?>
+    <div class="profile">
+        <?php if($isLoggedIn):?>
+            <button onclick="window.open('../Server/index.php', '_self')"><?= htmlspecialchars($userName)?></button>
+        <?php else: ?>
+            <button onclick="window.open('../Login/login.php','_self')">Log In</button>
+            <button onclick="window.open('../Signup/signup.php', '_self')">Sign Up</button>
+        <?php endif; ?>
+    </div>
 </nav>

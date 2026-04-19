@@ -66,11 +66,12 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
     <div id="content">
         <div class="adminContainer">
             <h1>Add new Screenshot</h1>
+            <hr>
             <?php if($message) echo "<p>$message</p>"; ?>
 
             <form action="addScreenshot.php" method="POST" enctype="multipart/form-data">
                 <input type="text" name="title" placeholder="Title.." style="width: 40ch;" required>
-                <textarea name="caption" placeholder="Caption.." required></textarea>
+                <textarea name="caption" placeholder="Caption.." style="resize: none" required></textarea>
                 <input type="file" name="imagePath" accept="image/*" required>
 
                 <button type="submit">Upload Screenshot</button>

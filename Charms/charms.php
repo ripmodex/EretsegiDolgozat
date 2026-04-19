@@ -28,20 +28,37 @@ $charmResult = $mysqli->query("SELECT * FROM charms ORDER BY name ASC");
     <?php include '../Common/map.php'; ?>
     <div id="bg"></div>
     <div id="content">
-        <div id="charmsContainer">
-            <?php while($row=$charmResult->fetch_assoc()): ?>
-                <div class="charmCard" onclick="showDetails(
-                        '<?= htmlspecialchars($row['name']) ?>',
-                        '<?= htmlspecialchars($row['description']) ?>',
-                        '<?= htmlspecialchars($row['location']) ?>',
-                        '<?= htmlspecialchars($row['category']) ?>',
-                        '../Kepek/Charms/<?= $row['imagePath'] ?>',
-                        '<?= $row['notches'] ?>'
-                )">
-                    <img src="../Kepek/Charms/<?= $row['imagePath'] ?>" alt="<?= $row['imagePath'] ?>">
-                    <!--<div class="notchCount">Cost: --><?php //= $row['notches'] ?><!--</div>-->
+        <h1>Charms</h1>
+        <hr>
+        <div class="toolbar">
+            <div class="searchGroup">
+                <span class="searchIcon"></span><input type="search" placeholder="Search charms.." name="searchInput" data-search>
+            </div>
+            <div class="filterGroup">
+                <select class="filterSelect" data-filter-category>
+                    <option value="all">All categories</option>
+                    <option value="Combat">Combat</option>
+                    <option value="Magic">Magic</option>
+                    <option value="Utility">Utility</option>
+                    <option value="Companion">Companion</option>
+                </select>
+                <select class="filterSelect" data-filter-notches>
+                    <option value="all">Any notches</option>
+                    <option value="1">1 Notch</option>
+                    <option value="2">2 Notches</option>
+                    <option value="3">3 Notches</option>
+                    <option value="4">4 Notches</option>
+                </select>
+            </div>
+        </div>
+        <hr>
+        <div id="charmsContainer" data-charms-container>
+            <template data-charms-template>
+                <div class="charmCard" onclick="showDetails(this)"
+                     data-name data-description data-location data-category data-image data-nothces>
+                    <img src="" alt="" data-card-img>
                 </div>
-            <?php endwhile; ?>
+            </template>
         </div>
 
         <div id="charmModal" class="modal" onclick="closeModal()">
@@ -57,7 +74,7 @@ $charmResult = $mysqli->query("SELECT * FROM charms ORDER BY name ASC");
         </div>
     </div>
 
-
+    <script src="../Search/searchCharms.js"></script>
     <script src="../Common/mapScript.js"></script>
     <script src="charmsScript.js"></script>
 </body>

@@ -2,17 +2,6 @@ html{
     scroll-behavior: smooth;
 }
 
-hr{
-    border: none;
-    height: 3px;
-    width: 100%;
-    background: linear-gradient(to right, transparent, #00aaff, transparent);
-    /*background-color: #1a3a4a; */
-    border-radius: 5px;
-    margin: 20px auto;
-    opacity: 0.6;
-}
-
 .areaCard{
     display: flex;
     background: rgba(10, 20, 30, 0.7);

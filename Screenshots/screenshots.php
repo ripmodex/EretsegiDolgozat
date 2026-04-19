@@ -10,7 +10,7 @@ $result = $mysqli->query($sql);
 
 $allScreenshots = [];
 while ($row = $result->fetch_assoc()){
-    $allScreenshots[] = $row;
+    array_push($allScreenshots, $row);
 }
 
 ?>
@@ -30,35 +30,11 @@ while ($row = $result->fetch_assoc()){
 <body>
     <?php include '../Common/menu.php'; ?>
     <?php include '../Common/map.php'; ?>
-<!--    <nav id="menu">-->
-<!--        <img src="../Kepek/icon.jpg" alt="logo" id="menu-logo">-->
-<!--        <ul>-->
-<!--            <li><a onclick="window.open('../Main/main.php', '_self')">Home</a></li>-->
-<!--            <li><a onclick="window.open('../Charms/charms.php', '_self')">Charms</a></li>-->
-<!--            --><?php //if($isAdmin): ?>
-<!--                <li class="dropdown">-->
-<!--                    <a href="javascript:void(0)" class="dropBtn">Admin Panel</a>-->
-<!--                    <div class="dropdownContent">-->
-<!--                        <a onclick="window.open('../Charms/addCharm.php', '_self')">Charms</a>-->
-<!--                        <a onclick="window.open('../Screenshots/addScreenshot.php', '_self')">Screenshots</a>-->
-<!--                    </div>-->
-<!--                </li>-->
-<!--            --><?php //endif; ?>
-<!--        </ul>-->
-<!--        <div class="searchBox">-->
-<!--            <input type="text" placeholder="Search.." name="search">-->
-<!--        </div>-->
-<!--        --><?php //if($isLoggedIn):?>
-<!--            <button onclick="window.open('../Server/index.php', '_self')">--><?php //= htmlspecialchars($userName)?><!--</button>-->
-<!--        --><?php //else: ?>
-<!--            <button onclick="window.open('../Login/login.php','_self')">Log In</button>-->
-<!--            <button onclick="window.open('../Signup/signup.html', '_self')">Sign Up</button>-->
-<!--        --><?php //endif; ?>
-<!--    </nav>-->
-    <div id="phpData" dataScreenshots='<?= json_encode($allScreenshots) ?>' style="display: none"></div>
+    <div id="phpData" dataScreenshots='<?= json_encode($allScreenshots) ?>' style="display: none"></div>  <!-- AJAX -->
     <div id="bg"></div>
         <div id="content">
             <h1>Slideshow</h1>
+            <hr>
             <div id="slideshowContainer" style="width: 85%; max-width: 1000px; margin: auto;">
                 <div id="slideContent">
                     <img id="slideImg" src="" alt="Slideshow">
@@ -69,6 +45,7 @@ while ($row = $result->fetch_assoc()){
             </div>
             <br><br><br>
             <h1>Screenshots</h1>
+            <hr>
             <div id="ssModal" class="modal" onclick="this.style.display='none'">
                 <div class="modalContent" onclick="event.stopPropagation()">
                     <span class="close" onclick="document.getElementById('ssModal').style.display='none'"
@@ -86,6 +63,7 @@ while ($row = $result->fetch_assoc()){
                         <img src="../Kepek/Screenshots/<?= $ss['imagePath'] ?>" alt="Screenshot" style="margin: 5px; max-width: 1000px;">
                         <div class="ssOverlay" style="margin: 5px;">View details</div>
                     </div>
+                    <hr>
                 <?php endforeach; ?>
             </div>
         </div>

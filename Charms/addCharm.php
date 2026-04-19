@@ -77,14 +77,15 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
     <div id="content">
         <div class="adminContainer">
             <h1>Add new Charm</h1>
+            <hr>
             <?php if($message) echo "<p>$message</p>"; ?>
 
             <form action="addCharm.php" method="POST" enctype="multipart/form-data">
                 <input type="text" name="name" placeholder="Charm name" style="width: 20ch;" required>
                 <textarea name="description" placeholder="Description" required></textarea>
                 <input type="number" name="notches" placeholder="Notch cost" min="1" max="5" style="width: 20ch;" required>
-                <input type="text" name="location" placeholder="Found in..." style="width: 20ch;">
-                <input type="text" name="category" placeholder="Category..." style="width: 20ch;">
+                <input type="text" name="location" placeholder="Found in..." style="width: 20ch;" required>
+                <input type="text" name="category" placeholder="Category..." style="width: 20ch;" required>
                 <input type="file" name="image" accept="image/*" required>
 
                 <button type="submit">Upload Charm</button>
