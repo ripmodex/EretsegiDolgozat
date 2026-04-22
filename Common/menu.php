@@ -38,7 +38,8 @@ if (file_exists($path)) {
     </ul>
     <?php if($currentPage === 'main.php'): ?>
         <div class="searchBox">
-            <input type="search" placeholder="Search.." name="search" data-search-area>
+            <input type="search" placeholder="Search.." name="search" data-search-area autocomplete="off">
+            <div id="searchResults" class="searchResultDropdown"></div>
         </div>
     <?php endif; ?>
     <div class="profile">

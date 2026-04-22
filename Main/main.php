@@ -29,19 +29,24 @@ $result = $mysqli->query("SELECT * FROM area LIMIT 5");
     <div id="content">
         <h1 style="text-align: center; color: #3aafff;">Explore Hallownest!</h1>
         <hr>
-        <?php while ($area = $result->fetch_assoc()): ?>
-            <div class="areaCard" id="area-<?= $area['id'] ?>"> <!-- for the map part, i am not fully done with, later -->
-                <div class="areaImageContainer">
-                    <img src="../Kepek/Area/<?= htmlspecialchars($area['main_image']) ?>" alt="<?= htmlspecialchars($area['name']) ?>">
+        <div id="areaContainer" data-area-container>
+            <?php while ($area = $result->fetch_assoc()): ?>
+                <div class="areaCard" id="area-<?= $area['id'] ?>" data-area-item
+                     data-name="<?= strtolower(htmlspecialchars($area['name'])) ?>"> <!-- for the map part, i am not fully done with, later -->
+                    <div class="areaImageContainer">
+                        <img src="../Kepek/Area/<?= htmlspecialchars($area['main_image']) ?>"
+                             alt="<?= htmlspecialchars($area['name']) ?>" data-area-img>
+                    </div>
+                    <div class="areaText">
+                        <h2><?= htmlspecialchars($area['name']) ?></h2>
+                        <p><?= nl2br(htmlspecialchars($area['description'])) ?></p>
+                    </div>
                 </div>
-                <div class="areaText">
-                    <h2><?= htmlspecialchars($area['name']) ?></h2>
-                    <p><?= nl2br(htmlspecialchars($area['description'])) ?></p>
-                </div>
-            </div>
-            <hr>
-        <?php endwhile; ?>
+                <hr>
+            <?php endwhile; ?>
+        </div>
     </div>
     <script src="../Common/mapScript.js"></script>
+    <script src="../Search/searchArea.js"></script>
 </body>
 </html>

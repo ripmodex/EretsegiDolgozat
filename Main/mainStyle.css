@@ -2,6 +2,10 @@ html{
     scroll-behavior: smooth;
 }
 
+.hide{
+    display: none !important;
+}
+
 .areaCard{
     display: flex;
     background: rgba(10, 20, 30, 0.7);
