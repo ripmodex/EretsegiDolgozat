@@ -1,12 +1,11 @@
 <?php
 
-global $isLoggedIn;
-global $userName;
-global $isAdmin;
-
 $mysqli =  require dirname(__DIR__) . '/Server/database.php';
 
-$result = $mysqli->query("SELECT * FROM area");
+$result = $mysqli->query("SELECT name, description, main_image FROM area");
+if(!$result){
+    die("Database error: " . htmlspecialchars($mysqli->error));
+}
 
 ?>
 

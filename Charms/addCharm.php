@@ -1,21 +1,14 @@
 <?php
 session_start();
 
-global $isAdmin;
-global $userName;
-global $isLoggedIn;
-
-//if(!isset($_SESSION["user_id"])) {
-//    //die("Session ID is missing. You are not logged in.");
-//    header("Location: ../Login/login.php");
-//    exit;
-//}
-//
-//if(!isset($_SESSION["role"]) || (int)$_SESSION["role"] !== 1){
-//    //die("Role mismatch. Your role is: " . $_SESSION["role"]);
-//    header("Location: ../Main/main.php");
-//    exit;
-//}
+if(!isset($_SESSION["user_id"])){
+    header("Location: ../Login/login.php");
+    exit;
+}
+if(!isset($_SESSION["role"]) || (int)$_SESSION["role"] !== 1){
+    header("Location: ../Main/main.php");
+    exit;
+}
 
 /* for debugging
 echo "<h3>Session Debugger</h3>";
@@ -30,17 +23,23 @@ $message = "";
 
 if($_SERVER["REQUEST_METHOD"] === "POST")
 {
-    $name = $_POST["name"];
-    $desc = $_POST["description"];
+    $name = trim($_POST["name"]);
+    $desc = trim($_POST["description"]);
     $notches = (int)$_POST["notches"];
     $location = $_POST["location"];
     $category =$_POST["category"];
 
     $imageName = $_FILES["image"]["name"];
+    $imageType = $_FILES["image"]["type"];
     $targetDir = "../Kepek/Charms/";
     $targetFile = $targetDir . basename($imageName);
 
-    if(move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)){
+    $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+
+    if(!in_array($imageType, $allowedTypes)){
+        $message = "Only image files are allowed (jpg, png, gif, webp).";
+    }
+    else if(move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)){
         $sql = "INSERT INTO charms (name, description, notches, imagePath, location, category) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $mysqli->prepare($sql);
         $stmt->bind_param("ssisss", $name, $desc, $notches, $imageName, $location, $category);
@@ -78,7 +77,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         <div class="adminContainer">
             <h1>Add new Charm</h1>
             <hr>
-            <?php if($message) echo "<p>$message</p>"; ?>
+            <?php if($message) echo "<p>" . htmlspecialchars($message) . "</p>"; ?>
 
             <form action="addCharm.php" method="POST" enctype="multipart/form-data">
                 <input type="text" name="name" placeholder="Charm name" style="width: 20ch;" required>

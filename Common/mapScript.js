@@ -58,8 +58,25 @@ document.addEventListener("DOMContentLoaded", () => {
             contentDiv.scrollTo({top: 0, behavior: 'smooth'});
         });
     }
+
+    const mapImage=document.getElementById("mapDisplay");
+    if(mapImage){
+        const originalSrc="../Kepek/Map/main.jpg";
+
+        document.querySelectorAll('map[name="hkMap"] area').forEach(area => {
+            area.addEventListener('mouseover', () => {
+                mapImage.src = '../Kepek/Map/' + area.dataset.img;
+                playHoverSound();
+            });
+            area.addEventListener('mouseout', () => {
+                mapImage.src = originalSrc;
+            });
+            area.addEventListener('click', () => takeMap(area.alt));
+        });
+    }
 });
 
+/*
 const mapImage=document.getElementById("mapDisplay");
 const originalSrc="../Kepek/Map/main.jpg";
 
@@ -70,6 +87,7 @@ function changeImage(newSrc){
 function resetImage(){
     mapImage.src=originalSrc;
 }
+ */
 
 function playHoverSound(){
     const sound=document.getElementById("hoverSound");

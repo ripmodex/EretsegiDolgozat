@@ -1,13 +1,7 @@
 <?php
 
-global $isLoggedIn;
-global $userName;
-global $isAdmin;
-
-$path = dirname(__DIR__) . '/Server/profile.php';
-
 $mysqli = require dirname(__DIR__) . "/Server/database.php";
-$charmResult = $mysqli->query("SELECT * FROM charms ORDER BY name ASC");
+$charmResult = $mysqli->query("SELECT name, description, notches, imagePath, location, category FROM charms ORDER BY name ASC");
 
 ?>
 
@@ -55,7 +49,7 @@ $charmResult = $mysqli->query("SELECT * FROM charms ORDER BY name ASC");
         <div id="charmsContainer" data-charms-container>
             <template data-charms-template>
                 <div class="charmCard" onclick="showDetails(this)"
-                     data-name data-description data-location data-category data-image data-nothces>
+                     data-name data-description data-location data-category data-image data-notches>
                     <img src="" alt="" data-card-img>
                 </div>
             </template>
