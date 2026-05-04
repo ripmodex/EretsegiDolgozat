@@ -67,6 +67,10 @@ while ($row = $result->fetch_assoc()){
                 <?php endforeach; ?>
             </div>
         </div>
+    <button id="backToTop" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+        ↑ Return to the Top
+    </button>
+
     <script src="screenshotScript.js"></script>
     <script src="../Common/mapScript.js"></script>
 </body>

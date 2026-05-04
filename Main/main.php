@@ -6,7 +6,7 @@ global $isAdmin;
 
 $mysqli =  require dirname(__DIR__) . '/Server/database.php';
 
-$result = $mysqli->query("SELECT * FROM area LIMIT 5");
+$result = $mysqli->query("SELECT * FROM area");
 
 ?>
 
@@ -31,8 +31,8 @@ $result = $mysqli->query("SELECT * FROM area LIMIT 5");
         <hr>
         <div id="areaContainer" data-area-container>
             <?php while ($area = $result->fetch_assoc()): ?>
-                <div class="areaCard" id="area-<?= $area['id'] ?>" data-area-item
-                     data-name="<?= strtolower(htmlspecialchars($area['name'])) ?>"> <!-- for the map part, i am not fully done with, later -->
+                <div class="areaCard" id="<?= htmlspecialchars($area['name']) ?>" data-area-item
+                     data-name="<?= strtolower(htmlspecialchars($area['name'])) ?>">
                     <div class="areaImageContainer">
                         <img src="../Kepek/Area/<?= htmlspecialchars($area['main_image']) ?>"
                              alt="<?= htmlspecialchars($area['name']) ?>" data-area-img>
@@ -45,8 +45,32 @@ $result = $mysqli->query("SELECT * FROM area LIMIT 5");
                 <hr>
             <?php endwhile; ?>
         </div>
+        <div class="bottomSpacer">
+            <img src="../Kepek/soulTotem.jpg" alt="Soul Totem" class="footerIcon">
+            <p>End of Hallownest</p>
+        </div>
     </div>
+    <button id="backToTop" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+        ↑ Return to Surface
+    </button>
+
     <script src="../Common/mapScript.js"></script>
     <script src="../Search/searchArea.js"></script>
+    <script>
+        window.addEventListener("load", () => {
+            if(window.location.hash){
+                const id = decodeURIComponent(window.location.hash.substring(1));
+                const target = document.getElementById(id);
+
+                if(target){
+                    setTimeout(() => {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'center'});
+                        target.classList.add('highlightArea');
+                        setTimeout(() => target.classList.remove('highlightArea'), 2000);
+                    }, 500);
+                }
+            }
+        });
+    </script>
 </body>
 </html>
