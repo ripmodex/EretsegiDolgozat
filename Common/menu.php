@@ -40,7 +40,7 @@ if (file_exists($path)) {
     <?php endif; ?>
     <div class="profile">
         <?php if($isLoggedIn):?>
-            <button onclick="window.open('', '_self')"><?= htmlspecialchars($userName) ?></button>
+            <button onclick="window.open('../Server/index.php', '_self')"><?= htmlspecialchars($userName) ?></button>
         <?php else: ?>
             <button onclick="window.open('../Login/login.php','_self')">Log In</button>
             <button onclick="window.open('../Signup/signup.php', '_self')">Sign Up</button>

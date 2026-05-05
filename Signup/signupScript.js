@@ -4,11 +4,6 @@ const emailInput = document.querySelector('#email');
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    /*document.querySelectorAll(".error-text").forEach(el =>{
-        el.textContent="";
-        el.classList.remove("errorActive");
-    });*/
-
     const allErrors = document.querySelectorAll(".error-text");
     allErrors.forEach(span => {
         span.textContent = "";
@@ -25,7 +20,6 @@ form.addEventListener('submit', async (event) => {
 
     const password=document.querySelector("#password").value;
     const passwordAgain=document.querySelector("#passwordAgain").value;
-    const passwordError=document.querySelector("passwordError");
     if(password.length<8){
         showError("passwordError", "Password must be at least 8 characters");
         isValid=false;
@@ -39,19 +33,20 @@ form.addEventListener('submit', async (event) => {
         isValid=false;
     }
 
-    if(/*isValid &&*/ password !== passwordAgain){
+    if(password !== passwordAgain){
         showError("passwordAgainError", "Password must match");
         isValid=false;
     }
 
     const email=document.querySelector("#email");
-    if(!email.value.includes("@")){
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailPattern.test(email.value)){
         showError("emailError", "Please enter a valid email");
-        isValid=false;
+        isValid = false;
     }
     else{
-        const isAvaible= await checkEmailAvailability(emailInput.value);
-        if(!isAvaible){
+        const isAvailable= await checkEmailAvailability(emailInput.value);
+        if(!isAvailable){
             showError("emailError", "Email is already taken");
             isValid=false;
         }

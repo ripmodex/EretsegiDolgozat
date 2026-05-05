@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Succes - Sign Up</title>
+    <title>Success - Sign Up</title>
     <link rel="icon" href="../Kepek/icon.jpg" type="image/jpg">
     <link rel="stylesheet" href="../Common/menuStyle.css">
     <link rel="stylesheet" href="../Common/mapStyle.css">

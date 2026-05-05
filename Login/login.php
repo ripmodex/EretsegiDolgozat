@@ -1,22 +1,21 @@
 <?php
 
+session_start();
+
 $is_invalid=false;
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $mysqli= require dirname(__DIR__). "/Server/database.php";
 
-    $sql=sprintf("SELECT *
-                         FROM user
-                         WHERE email='%s'",
-                         $mysqli->real_escape_string($_POST["email"]));
-
-    $result=$mysqli->query($sql);
-
-    $user=$result->fetch_assoc();
+    $sql="SELECT id, password_hash, role FROM user WHERE email=?";
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("s", $_POST["email"]);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
 
     if($user){
         if(password_verify($_POST["password"] ,$user["password_hash"])){
-            session_start();
             $_SESSION["user_id"]=$user["id"];
             $_SESSION["role"]=(int)$user["role"];
             session_write_close();
@@ -54,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <?php endif; ?>
             <div>
                 <label for="email">Email:</label>
-                <input type="text" id="email" placeholder="Email..." name="email" required
+                <input type="email" id="email" placeholder="Email..." name="email" required
                         value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
             </div>
             <div>
@@ -63,7 +62,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <span>If you don't have an account, make one <a href="../Signup/signup.php">here</a></span><br>
             <button id="loginButton">Log In</button>
-            <!-- <p id="errorMessage" style="color: red; display:none">Please fill in all the field, thanks!</p> -->
         </form>
     </div>
     <script src="loginScript.js"></script>

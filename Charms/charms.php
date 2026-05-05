@@ -68,7 +68,6 @@ $charmResult = $mysqli->query("SELECT name, description, notches, imagePath, loc
         </div>
     </div>
 
-    <script src="../Search/searchCharms.js"></script>
     <script src="../Common/mapScript.js"></script>
     <script src="charmsScript.js"></script>
 </body>

@@ -14,18 +14,6 @@
     <?php include '../Common/menu.php'; ?>
     <?php include '../Common/map.php'; ?>
     <div id="bg"></div>
-<!--    <nav id="menu">-->
-<!--        <img src="../Kepek/icon.jpg" alt="logo" id="menu-logo">-->
-<!--        <ul>-->
-<!--            <li><a>Charms</a></li>-->
-<!--            <li><a>Screenshots</a></li>-->
-<!--            <li><a>Negyedik</a></li>-->
-<!--        </ul>-->
-<!--        <div class="searchBox">-->
-<!--            <input type="text" placeholder="Search.." name="search">-->
-<!--        </div>-->
-<!--        <button onclick="window.open('../Main/main.php','_self')">Home page</button>-->
-<!--    </nav>-->
     <div id="content">
         <h1>Sign Up</h1>
         <h3>If you want to make an account, here is the right place for it!</h3>
@@ -37,7 +25,7 @@
             </div>
             <div>
                 <label for="email">Email:</label>
-                <input type="text" id="email" name="email" placeholder="E-mail...">
+                <input type="email" id="email" name="email" placeholder="E-mail...">
                 <span id="emailError" class="errorText"></span>
             </div>
             <div>
