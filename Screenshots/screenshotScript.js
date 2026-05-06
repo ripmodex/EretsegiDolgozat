@@ -1,19 +1,22 @@
-const dataElement = document.getElementById("phpData");
-const slides = JSON.parse(dataElement.getAttribute("dataScreenshots") || "{}");
-let currentIndex = 0;
+document.addEventListener("DOMContentLoaded", () => {
+    const dataElement = document.getElementById("phpData");
+    const slides = JSON.parse(dataElement.getAttribute("dataScreenshots") || "[]");
+    let currentIndex = 0;
 
-function runSlideshow(){
-    if(slides.length === 0) return;
-    const img = document.getElementById("slideImg");
-    const title = document.getElementById("slideTitle");
+    function runSlideshow(){
+        if(slides.length === 0) return;
+        const img = document.getElementById("slideImg");
+        const title = document.getElementById("slideTitle");
 
-    img.src = "../Kepek/Screenshots/" + slides[currentIndex].imagePath;
-    title.innerText = slides[currentIndex].title;
+        img.src = "../Kepek/Screenshots/" + slides[currentIndex].imagePath;
+        title.innerText = slides[currentIndex].title;
 
-    currentIndex = (currentIndex + 1) % slides.length;
-    setTimeout(runSlideshow, 5000);
-}
-window.onload = runSlideshow;
+        currentIndex = (currentIndex + 1) % slides.length;
+        setTimeout(runSlideshow, 5000);
+    }
+
+    runSlideshow();
+});
 
 function openSSModal(data){
     document.getElementById("modalSSImg").src = "../Kepek/Screenshots/" + data.imagePath;

@@ -64,7 +64,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <button id="loginButton">Log In</button>
         </form>
     </div>
-    <script src="loginScript.js"></script>
     <script src="../Common/mapScript.js"></script>
 </body>
 </html>

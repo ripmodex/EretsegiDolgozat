@@ -23,14 +23,19 @@ $message = "";
 
 if($_SERVER["REQUEST_METHOD"] === "POST")
 {
-    $title = $_POST["title"];
-    $caption = $_POST["caption"];
+    $title = trim($_POST["title"]);
+    $caption = trim($_POST["caption"]);
 
     $imagePath = $_FILES["imagePath"]["name"];
     $targetDir = "../Kepek/Screenshots/";
     $targetFile = $targetDir . basename($imagePath);
 
-    if(move_uploaded_file($_FILES["imagePath"]["tmp_name"], $targetFile)){
+    $allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+
+    if(!in_array($_FILES["imagePath"]["tmp_name"], $allowed_types)){
+        $message = "Only image files are allowed.";
+    }
+    else if(move_uploaded_file($_FILES["imagePath"]["tmp_name"], $targetFile)){
         $sql = "INSERT INTO screenshots (title, caption, imagePath) VALUES (?, ?, ?)";
         $stmt = $mysqli->prepare($sql);
         $stmt->bind_param("sss", $title, $caption, $imagePath);
@@ -67,7 +72,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         <div class="adminContainer">
             <h1>Add new Screenshot</h1>
             <hr>
-            <?php if($message) echo "<p>$message</p>"; ?>
+            <?php if($message) echo "<p>" . htmlspecialchars($message) . "</p>"; ?>
 
             <form action="addScreenshot.php" method="POST" enctype="multipart/form-data">
                 <input type="text" name="title" placeholder="Title.." style="width: 40ch;" required>

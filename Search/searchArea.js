@@ -1,5 +1,6 @@
 const areaSearchInput = document.querySelector("[data-search-area]");
 const resultsDropdown = document.getElementById("searchResults");
+let selectedIndex = -1;
 
 const areaData = Array.from(document.querySelectorAll("[data-area-item]")).map(card => {
     return{
@@ -48,8 +49,6 @@ document.addEventListener("click", (e) => {
         resultsDropdown.style.display = "none";
     }
 });
-
-let selectedIndex = -1;
 
 areaSearchInput.addEventListener("keydown", (e) => {
     const items = resultsDropdown.querySelectorAll(".searchResultItem");

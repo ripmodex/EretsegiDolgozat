@@ -5,7 +5,7 @@ global $userName;
 global $isAdmin;
 
 $mysqli = require dirname(__DIR__) . '/Server/database.php';
-$sql = "SELECT * FROM screenshots ORDER BY id DESC";
+$sql = "SELECT title, caption, imagePath FROM screenshots ORDER BY id DESC";
 $result = $mysqli->query($sql);
 
 $allScreenshots = [];
@@ -30,7 +30,7 @@ while ($row = $result->fetch_assoc()){
 <body>
     <?php include '../Common/menu.php'; ?>
     <?php include '../Common/map.php'; ?>
-    <div id="phpData" dataScreenshots='<?= json_encode($allScreenshots) ?>' style="display: none"></div>  <!-- AJAX -->
+    <div id="phpData" dataScreenshots='<?= json_encode($allScreenshots) ?>' style="display: none"></div>
     <div id="bg"></div>
         <div id="content">
             <h1>Slideshow</h1>
@@ -60,7 +60,7 @@ while ($row = $result->fetch_assoc()){
             <div id="screenshotGrid">
                 <?php foreach($allScreenshots as $ss): ?>
                     <div class="ssCard" onclick="openSSModal(<?=htmlspecialchars(json_encode($ss))?>)">
-                        <img src="../Kepek/Screenshots/<?= $ss['imagePath'] ?>" alt="Screenshot" style="margin: 5px; max-width: 1000px;">
+                        <img src="../Kepek/Screenshots/<?= htmlspecialchars($ss['imagePath']) ?>" alt="Screenshot" style="margin: 5px; max-width: 1000px;">
                         <div class="ssOverlay" style="margin: 5px;">View details</div>
                     </div>
                     <hr>
