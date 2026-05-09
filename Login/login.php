@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $_SESSION["user_id"]=$user["id"];
             $_SESSION["role"]=(int)$user["role"];
             session_write_close();
-            header("Location: ../Server/index.php");
+            header("Location: ../Server/profilePage.php");
             exit;
         }
     }
