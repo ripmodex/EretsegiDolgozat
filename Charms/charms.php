@@ -32,9 +32,12 @@ $charmResult = $mysqli->query("SELECT name, description, notches, imagePath, loc
                 <select class="filterSelect" data-filter-category>
                     <option value="all">All categories</option>
                     <option value="Combat">Combat</option>
-                    <option value="Magic">Magic</option>
+                    <option value="Health">Health</option>
                     <option value="Utility">Utility</option>
                     <option value="Companion">Companion</option>
+                    <option value="Spells">Spells
+                    <option value="Movement">Movement</option>
+                    <option value="Soul">Soul</option>
                 </select>
                 <select class="filterSelect" data-filter-notches>
                     <option value="all">Any notches</option>
@@ -42,6 +45,7 @@ $charmResult = $mysqli->query("SELECT name, description, notches, imagePath, loc
                     <option value="2">2 Notches</option>
                     <option value="3">3 Notches</option>
                     <option value="4">4 Notches</option>
+                    <option value="5">5 Notches</option>
                 </select>
             </div>
         </div>

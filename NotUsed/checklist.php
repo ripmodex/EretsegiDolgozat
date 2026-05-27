@@ -32,12 +32,11 @@ $result = $mysqli->query($query);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>Profile - <?= isset($user) ? htmlspecialchars($user["username"]) : "Guest" ?></title>
     <link rel="stylesheet" href="../Common/menuStyle.css">
     <link rel="stylesheet" href="../Common/mapStyle.css">
     <link rel="stylesheet" href="../Common/contentStyle.css">
-    <link rel="stylesheet" href="checklistStyle.css">
+    <link rel="stylesheet" href="../Checklist/checklistStyle.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
 <body>

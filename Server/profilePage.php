@@ -4,8 +4,6 @@ session_start();
 
 global $isAdmin;
 
-//$path = dirname(__DIR__) . '/Server/profile.php';
-
 if(isset($_SESSION["user_id"])){
     $mysqli = require __DIR__ . "/database.php";
 
@@ -62,18 +60,20 @@ if(isset($_SESSION["user_id"])){
                 </div>
             </div>
             <hr>
-            <div class="enemyGrid">
-                <?php while ($enemy = $result->fetch_assoc()): ?>
-                    <div class="enemyCard <?= $enemy['is_discovered'] ? 'completed' : '' ?>" id="enemy-<?= $enemy['id'] ?>">
-                        <label class="checkboxContainer">
-                            <input type="checkbox" <?= $enemy['is_discovered'] ? 'checked' : '' ?> onchange="updateHunterJournal(<?= $enemy['id'] ?>, this.checked)">
-                            <span class="checkmark"></span>
-                        </label>
-                        <div class="enemyInfo">
-                            <h3><?= htmlspecialchars($enemy['name']) ?></h3>
+            <div class="checklistContainer" style="max-height: 450px; overflow-y: auto; padding-right: 10px; margin-bottom: 20px">
+                <div class="enemyGrid">
+                    <?php while ($enemy = $result->fetch_assoc()): ?>
+                        <div class="enemyCard <?= $enemy['is_discovered'] ? 'completed' : '' ?>" id="enemy-<?= $enemy['id'] ?>">
+                            <label class="checkboxContainer">
+                                <input type="checkbox" <?= $enemy['is_discovered'] ? 'checked' : '' ?> onchange="updateHunterJournal(<?= $enemy['id'] ?>, this.checked)">
+                                <span class="checkmark"></span>
+                            </label>
+                            <div class="enemyInfo">
+                                <h3><?= htmlspecialchars($enemy['name']) ?></h3>
+                            </div>
                         </div>
-                    </div>
-                <?php endwhile; ?>
+                    <?php endwhile; ?>
+                </div>
             </div>
             <hr>
             <div class="userProfileCard">

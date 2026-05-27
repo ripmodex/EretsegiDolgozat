@@ -22,9 +22,7 @@ window.onclick=function(event){
 }
 
 function takeMap(targetId){
-    console.log("takeMap called with ID:", targetId);
     const isMainPage = window.location.pathname.includes("main.php");
-    console.log("Are we on main page?", isMainPage);
 
     if(isMainPage){
         const targetElement = document.getElementById(targetId);
@@ -54,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const contentDiv = document.getElementById("content");
     if(topBtn && contentDiv){
         topBtn.addEventListener("click", () => {
-            console.log("Back to top clicked!");
             contentDiv.scrollTo({top: 0, behavior: 'smooth'});
         });
     }
@@ -76,19 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-/*
-const mapImage=document.getElementById("mapDisplay");
-const originalSrc="../Kepek/Map/main.jpg";
-
-function changeImage(newSrc){
-    mapImage.src=newSrc;
-}
-
-function resetImage(){
-    mapImage.src=originalSrc;
-}
- */
-
 function playHoverSound(){
     const sound=document.getElementById("hoverSound");
     sound.pause();
@@ -108,7 +92,6 @@ const preloadImages=[
     "../Kepek/Map/deepnest.jpg",
     "../Kepek/Map/dirtmouth.jpg",
     "../Kepek/Map/fogCanyon.jpg",
-    "../Kepek/Map/forgottenCrossroads.jpg",
     "../Kepek/Map/fungalWastes.jpg",
     "../Kepek/Map/greenpath.jpg",
     "../Kepek/Map/howlingCliffs.jpg",

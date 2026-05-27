@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
             charm.element.classList.toggle("hide", !(matchesSearch && matchesCategory && matchesNotches));
         });
     }
-    //the search function
     fetch("../Search/searchCharmsAPI.php")
         .then(res => res.json())
         .then(data => {
