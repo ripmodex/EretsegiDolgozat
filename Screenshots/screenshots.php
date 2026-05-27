@@ -39,8 +39,6 @@ while ($row = $result->fetch_assoc()){
                 <div id="slideContent">
                     <img id="slideImg" src="" alt="Slideshow">
                     <div id="slideTitle"></div>
-                    <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>-->
-                    <!-- <a class="next" onclick="plusSlides(1)">&#10095;</a>-->
                 </div>
             </div>
             <br><br><br>

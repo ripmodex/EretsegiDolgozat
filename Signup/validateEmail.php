@@ -2,12 +2,6 @@
 
 $mysqli = require dirname(__DIR__) . "/Server/database.php";
 
-//$sql = sprintf("SELECT id FROM user WHERE email = '%s'",
-//    $mysqli->real_escape_string($_GET["email"]));
-//
-//$result = $mysqli->query($sql);
-//
-//$is_available = $result->num_rows === 0;
 
 if(!isset($_GET["email"])){
     http_response_code(400);

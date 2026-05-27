@@ -19,7 +19,7 @@
     margin-right: auto;
     max-height: 80vh;
     max-width: 90vw;
-    overflow-y: auto; /* for this time i will stick with this, but in the future you might wanna try make it, a bit different, but okay*/
+    overflow-y: auto;
     scrollbar-width: none;
     width: 1250px;
     background-color: rgba(0, 0 , 0, 0.6);

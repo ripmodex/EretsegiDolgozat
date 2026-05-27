@@ -19,7 +19,7 @@
     margin-right: auto;
     max-height: 80vh;
     max-width: 90vw;
-    overflow-y: auto; /* for this time i will stick with this, but in the future you might wanna try make it, a bit different, but okay*/
+    overflow-y: auto;
     scrollbar-width: none;
     width: 1250px;
     background-color: rgba(0, 0 , 0, 0.6);
@@ -74,15 +74,3 @@ input.invalid{
     font-size: 18px;
     border-radius: 5px;
 }
-/*
-#content form label{
-    vertical-align: middle;
-    margin-bottom: 4px;
-    display: inline-block;
-}
-
-#content form input{
-    display: block;
-    margin : 0 auto;
-}
- */

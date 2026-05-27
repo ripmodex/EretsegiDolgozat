@@ -13,7 +13,6 @@
 
 .map-wrapper{
     position: relative;
-    /*display: inline-block; !*i am not so sure about the difference, but it may be possible that this is not needed, but for the time being, it remains*!*/
     max-height: 90%;
     max-width: 90%;
     z-index: 2001;

@@ -10,13 +10,6 @@ if(!isset($_SESSION["role"]) || (int)$_SESSION["role"] !== 1){
     exit;
 }
 
-/* for debugging
-echo "<h3>Session Debugger</h3>";
-echo "User ID: " . ($_SESSION["user_id"] ?? "Not Set") . "<br>";
-echo "Role Value: " . ($_SESSION["role"] ?? "Not Set") . "<br>";
-echo "Type of Role: " . gettype($_SESSION["role"] ?? null) . "<br>";
-*/
-
 $mysqli = require dirname(__DIR__) . "/Server/database.php";
 
 $message = "";
